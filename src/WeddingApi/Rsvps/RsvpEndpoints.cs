@@ -26,7 +26,7 @@ public static class RsvpEndpoints
         group.MapDelete("/{id}", DeleteRsvp.Handler)
             .WithMetadata(new SwaggerOperationAttribute("Remove an RSVP"));
 
-        group.MapPost("/{id}", UpdateRsvp.Handler)
+        group.MapPut("/{id}", UpdateRsvp.Handler)
             .WithMetadata(new SwaggerOperationAttribute("Update an RSVP"));
 
         return group;
