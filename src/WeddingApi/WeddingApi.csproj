@@ -16,8 +16,4 @@
     <ProjectReference Include="..\WeddingApi.Infrastructure\WeddingApi.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="SongRequests\" />
-  </ItemGroup>
-
 </Project>

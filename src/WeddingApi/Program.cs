@@ -2,6 +2,7 @@ using WeddingApi.Guests;
 using WeddingApi.Infrastructure.Photos;
 using WeddingApi.Photos;
 using WeddingApi.Rsvps;
+using WeddingApi.SongRequests;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,5 +31,6 @@ app.MapControllers();
 app.MapPhotoApi();
 app.MapRsvpApi();
 app.MapGuestApi();
+app.MapSongRequestApi();
 
 app.Run();

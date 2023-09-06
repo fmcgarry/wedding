@@ -7,23 +7,23 @@ public class SongRequestService : ISongRequestService
 {
     private readonly List<SongRequest> _songRequests = new();
 
-    public IEnumerable<SongRequest> GetSongRequests()
+    public async Task<IEnumerable<SongRequest>> GetSongRequestsAsync()
     {
         return _songRequests;
     }
 
-    public SongRequest? GetSongRequestById(Guid id)
+    public async Task<SongRequest?> GetSongRequestByIdAsync(Guid id)
     {
         return _songRequests.FirstOrDefault(sr => sr.Id == id);
     }
 
-    public void AddSongRequest(SongRequest songRequest)
+    public async Task AddSongRequestAsync(SongRequest songRequest)
     {
         songRequest.Id = Guid.NewGuid();
         _songRequests.Add(songRequest);
     }
 
-    public void UpdateSongRequest(Guid id, SongRequest updatedSongRequest)
+    public async Task UpdateSongRequestAsync(Guid id, SongRequest updatedSongRequest)
     {
         var existingSongRequest = _songRequests.FirstOrDefault(sr => sr.Id == id);
 
@@ -34,7 +34,7 @@ public class SongRequestService : ISongRequestService
         }
     }
 
-    public void RemoveSongRequest(Guid id)
+    public async Task RemoveSongRequestAsync(Guid id)
     {
         var songRequestToRemove = _songRequests.FirstOrDefault(sr => sr.Id == id);
 
