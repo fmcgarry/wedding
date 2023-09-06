@@ -29,7 +29,7 @@ public class RsvpService : IRsvpService
 
         if (existingRsvp != null)
         {
-            existingRsvp.GuestId = updatedRsvp.GuestId;
+            existingRsvp.PrimaryGuestId = updatedRsvp.PrimaryGuestId;
             existingRsvp.Attending = updatedRsvp.Attending;
         }
     }
