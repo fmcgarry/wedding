@@ -18,7 +18,7 @@ public class PhotoFeature : IFeature
 
     public IServiceCollection RegisterServices(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddPhotoClient(configuration.GetRequiredSection(nameof(PhotoFeature)));
+        services.AddPhotoClient(configuration.GetSection(PhotoClientOptions.PhotoClient));
 
         return services;
     }
