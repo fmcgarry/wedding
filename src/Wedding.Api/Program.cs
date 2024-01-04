@@ -1,5 +1,4 @@
 using Wedding.Api;
-using Wedding.Api.Photos;
 using Wedding.Api.SongRequests;
 using Wedding.Infrastructure.Photos;
 
@@ -25,7 +24,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Uses my way
-app.MapPhotoApi();
 app.MapSongRequestApi();
 
 // Uses ModuleExtensions.cs
