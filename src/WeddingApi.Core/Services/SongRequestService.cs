@@ -1,7 +1,7 @@
-﻿using WeddingApi.Core.Interfaces;
-using WeddingApi.Core.Models;
+﻿using Wedding.Core.Entities;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Core.Services;
+namespace Wedding.Core.Services;
 
 public class SongRequestService : ISongRequestService
 {

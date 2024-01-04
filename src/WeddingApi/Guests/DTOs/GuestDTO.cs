@@ -1,4 +1,4 @@
-﻿namespace WeddingApi.Guests.DTOs;
+﻿namespace Wedding.Api.Guests.DTOs;
 
 public class GuestDTO
 {

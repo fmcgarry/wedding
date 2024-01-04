@@ -1,4 +1,4 @@
-﻿namespace WeddingApi;
+﻿namespace Wedding.Api;
 
 public abstract class Endpoint<IRequest, IResponse>
 {

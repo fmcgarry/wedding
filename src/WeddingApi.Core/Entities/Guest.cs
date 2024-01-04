@@ -1,6 +1,6 @@
-﻿using WeddingApi.Core.Interfaces;
+﻿using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Core.Entities;
+namespace Wedding.Core.Entities;
 
 public class Guest : IEntity
 {

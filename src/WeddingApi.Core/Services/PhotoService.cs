@@ -1,6 +1,6 @@
-﻿using WeddingApi.Core.Interfaces;
+﻿using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Core.Services;
+namespace Wedding.Core.Services;
 
 public class PhotoService : IPhotoService
 {

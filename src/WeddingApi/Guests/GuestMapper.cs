@@ -1,8 +1,8 @@
-﻿using Wedding.Core.Interfaces;
-using WeddingApi.Core.Entities;
-using WeddingApi.Guests.DTOs;
+﻿using Wedding.Api.Guests.DTOs;
+using Wedding.Core.Entities;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Guests;
+namespace Wedding.Api.Guests;
 
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0017:Simplify object initialization", Justification = "We want to see the line conversion fails on.")]
 public class GuestMapper : IEntityModelMapper<Guest, GuestDTO>

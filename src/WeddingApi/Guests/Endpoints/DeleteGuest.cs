@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using WeddingApi.Core.Interfaces;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Guests.Endpoints;
+namespace Wedding.Api.Guests.Endpoints;
 
 public static class DeleteGuest
 {

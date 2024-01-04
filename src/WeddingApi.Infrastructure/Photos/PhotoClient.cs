@@ -1,6 +1,6 @@
-﻿using WeddingApi.Core.Interfaces;
+﻿using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Infrastructure.Photos;
+namespace Wedding.Infrastructure.Photos;
 
 public class PhotoClient : IPhotoClient
 {

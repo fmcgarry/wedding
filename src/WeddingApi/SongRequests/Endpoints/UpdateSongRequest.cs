@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using WeddingApi.Core.Interfaces;
-using WeddingApi.Core.Models;
-using WeddingApi.SongRequests.DTOs;
+using Wedding.Api.SongRequests.DTOs;
+using Wedding.Core.Entities;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.SongRequests.Endpoints;
+namespace Wedding.Api.SongRequests.Endpoints;
 
 public class UpdateSongRequest
 {

@@ -1,6 +1,4 @@
-﻿using WeddingApi.Core.Interfaces;
-
-namespace Wedding.Core.Interfaces;
+﻿namespace Wedding.Core.Interfaces;
 
 public interface IEntityModelMapper<T, U>
     where T : class, IEntity

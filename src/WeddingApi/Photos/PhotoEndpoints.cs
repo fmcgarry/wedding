@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using WeddingApi.Core.Interfaces;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Photos;
+namespace Wedding.Api.Photos;
 
 public static class PhotoEndpoints
 {

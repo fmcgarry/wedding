@@ -1,7 +1,7 @@
-using WeddingApi;
-using WeddingApi.Infrastructure.Photos;
-using WeddingApi.Photos;
-using WeddingApi.SongRequests;
+using Wedding.Api;
+using Wedding.Api.Photos;
+using Wedding.Api.SongRequests;
+using Wedding.Infrastructure.Photos;
 
 var builder = WebApplication.CreateBuilder(args);
 

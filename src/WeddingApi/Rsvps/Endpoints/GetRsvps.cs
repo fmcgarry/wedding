@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using Wedding.Api.Rsvps.DTOs;
+using Wedding.Core.Entities.RsvpAggregate;
 using Wedding.Core.Interfaces;
-using WeddingApi.Core.Entities.RsvpAggregate;
-using WeddingApi.Core.Interfaces;
-using WeddingApi.Rsvps.DTOs;
 
-namespace WeddingApi.Rsvps.Endpoints;
+namespace Wedding.Api.Rsvps.Endpoints;
 
 public class GetRsvps
 {

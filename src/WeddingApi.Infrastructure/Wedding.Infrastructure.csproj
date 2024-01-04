@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WeddingApi.Core\WeddingApi.Core.csproj" />
+    <ProjectReference Include="..\WeddingApi.Core\Wedding.Core.csproj" />
   </ItemGroup>
 
 </Project>

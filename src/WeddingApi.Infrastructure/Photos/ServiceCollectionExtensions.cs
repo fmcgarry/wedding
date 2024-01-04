@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WeddingApi.Core.Interfaces;
-using WeddingApi.Core.Services;
+using Wedding.Core.Interfaces;
+using Wedding.Core.Services;
 
-namespace WeddingApi.Infrastructure.Photos;
+namespace Wedding.Infrastructure.Photos;
 
 public static class ServiceCollectionExtensions
 {

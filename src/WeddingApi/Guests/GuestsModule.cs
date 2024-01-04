@@ -1,10 +1,10 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
+using Wedding.Api.Guests.DTOs;
+using Wedding.Api.Guests.Endpoints;
+using Wedding.Core.Entities;
 using Wedding.Core.Interfaces;
-using WeddingApi.Core.Entities;
-using WeddingApi.Guests.DTOs;
-using WeddingApi.Guests.Endpoints;
 
-namespace WeddingApi.Guests;
+namespace Wedding.Api.Guests;
 
 public class GuestsModule : IModule
 {

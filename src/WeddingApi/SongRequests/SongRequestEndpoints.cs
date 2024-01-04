@@ -1,7 +1,7 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
-using WeddingApi.SongRequests.Endpoints;
+using Wedding.Api.SongRequests.Endpoints;
 
-namespace WeddingApi.SongRequests;
+namespace Wedding.Api.SongRequests;
 
 public static class SongRequestEndpoints
 {

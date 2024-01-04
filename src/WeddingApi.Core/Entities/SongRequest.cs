@@ -1,4 +1,4 @@
-﻿namespace WeddingApi.Core.Models;
+﻿namespace Wedding.Core.Entities;
 
 public class SongRequest
 {

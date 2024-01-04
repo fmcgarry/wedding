@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using WeddingApi.Core.Interfaces;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.SongRequests.Endpoints;
+namespace Wedding.Api.SongRequests.Endpoints;
 
 public class RemoveSongRequest
 {

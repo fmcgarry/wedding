@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using WeddingApi.Core.Interfaces;
-using WeddingApi.Guests.DTOs;
+using Wedding.Api.Guests.DTOs;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Guests.Endpoints;
+namespace Wedding.Api.Guests.Endpoints;
 
 public static class GetGuests
 {

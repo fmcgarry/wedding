@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using WeddingApi.Core.Interfaces;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Rsvps.Endpoints;
+namespace Wedding.Api.Rsvps.Endpoints;
 
 public class DeleteRsvp
 {

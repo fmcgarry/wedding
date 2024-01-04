@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using WeddingApi.Core.Interfaces;
-using WeddingApi.SongRequests.DTOs;
+using Wedding.Api.SongRequests.DTOs;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.SongRequests.Endpoints;
+namespace Wedding.Api.SongRequests.Endpoints;
 
 public static class GetSongRequest
 {

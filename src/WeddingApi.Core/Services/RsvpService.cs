@@ -1,7 +1,7 @@
-﻿using WeddingApi.Core.Entities.RsvpAggregate;
-using WeddingApi.Core.Interfaces;
+﻿using Wedding.Core.Entities.RsvpAggregate;
+using Wedding.Core.Interfaces;
 
-namespace WeddingApi.Core.Services;
+namespace Wedding.Core.Services;
 
 public class RsvpService : IRsvpService
 {
