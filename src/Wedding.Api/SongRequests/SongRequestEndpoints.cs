@@ -7,7 +7,7 @@ public static class SongRequestEndpoints
 {
     public static void MapSongRequestApi(this WebApplication app)
     {
-        app.MapGroup("/song-requests")
+        app.MapGroup("/songrequests")
             .MapSongRequestEndpoints()
             .WithTags("Song Requests");
     }
