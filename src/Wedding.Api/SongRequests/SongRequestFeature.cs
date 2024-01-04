@@ -30,7 +30,7 @@ public class SongRequestFeature : IFeature
         return group;
     }
 
-    public IServiceCollection RegisterServices(IServiceCollection services)
+    public IServiceCollection RegisterServices(IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<ISongRequestService, SongRequestService>();
 

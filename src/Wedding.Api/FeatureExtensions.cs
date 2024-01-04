@@ -5,12 +5,12 @@ public static class FeatureExtensions
     // this could also be added into the DI container
     static readonly List<IFeature> registeredFeatures = new();
 
-    public static IServiceCollection RegisterFeatureServices(this IServiceCollection services)
+    public static IServiceCollection RegisterFeatureServices(this IServiceCollection services, IConfiguration configuration)
     {
         var features = DiscoverFeatures();
         foreach (var feature in features)
         {
-            feature.RegisterServices(services);
+            feature.RegisterServices(services, configuration);
             registeredFeatures.Add(feature);
         }
 

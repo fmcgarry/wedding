@@ -1,7 +1,6 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
 using Wedding.Api.Photos.Endpoints;
-using Wedding.Core.Interfaces;
-using Wedding.Core.Services;
+using Wedding.Infrastructure.Photos;
 
 namespace Wedding.Api.Photos;
 
@@ -17,9 +16,9 @@ public class PhotoFeature : IFeature
         return endpoints;
     }
 
-    public IServiceCollection RegisterServices(IServiceCollection services)
+    public IServiceCollection RegisterServices(IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<IPhotoService, PhotoService>();
+        services.AddPhotoClient(configuration.GetRequiredSection(nameof(PhotoFeature)));
 
         return services;
     }

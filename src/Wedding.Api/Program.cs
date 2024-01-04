@@ -1,15 +1,12 @@
 using Wedding.Api;
-using Wedding.Infrastructure.Photos;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(config => config.EnableAnnotations());
 
-builder.Services.AddPhotoClient(builder.Configuration);
-
 // Uses FeatureExtensions.cs
-builder.Services.RegisterFeatureServices();
+builder.Services.RegisterFeatureServices(builder.Configuration);
 
 var app = builder.Build();
 

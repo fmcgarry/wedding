@@ -8,13 +8,6 @@ namespace Wedding.Api.Guests;
 
 public class GuestsFeature : IFeature
 {
-    public IServiceCollection RegisterServices(IServiceCollection services)
-    {
-        services.AddTransient<IEntityModelMapper<Guest, GuestDTO>, GuestMapper>();
-
-        return services;
-    }
-
     public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
     {
         var group = endpoints.MapGroup("/guests").WithTags("Guests");
@@ -35,5 +28,12 @@ public class GuestsFeature : IFeature
             .WithMetadata(new SwaggerOperationAttribute("Deletes a guest by id"));
 
         return group;
+    }
+
+    public IServiceCollection RegisterServices(IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddTransient<IEntityModelMapper<Guest, GuestDTO>, GuestMapper>();
+
+        return services;
     }
 }
