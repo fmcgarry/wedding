@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using WeddingApi.Core.Interfaces;
 using WeddingApi.Guests.DTOs;
 
-namespace WeddingApi.Guests;
+namespace WeddingApi.Guests.Endpoints;
 
-public static partial class GuestEndpoints
+public static class GetGuests
 {
-    public static async Task<Ok<List<GuestDTO>>> GetGuests([FromServices] IGuestService guestService)
+    public static async Task<Ok<List<GuestDTO>>> Handler([FromServices] IGuestService guestService)
     {
         var guests = await guestService.GetGuestsAsync();
 

@@ -1,6 +1,8 @@
-﻿namespace WeddingApi.Core.Entities.RsvpAggregate;
+﻿using WeddingApi.Core.Interfaces;
 
-public class Rsvp
+namespace WeddingApi.Core.Entities.RsvpAggregate;
+
+public class Rsvp : IEntity
 {
     public Guid Id { get; set; }
     public Guid PrimaryGuestId { get; set; }

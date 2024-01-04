@@ -1,12 +1,19 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using WeddingApi.Core.Interfaces;
 
 namespace WeddingApi.Rsvps.Endpoints;
 
-public static class DeleteRsvp
+public class DeleteRsvp
 {
-    public static async Task<Results<NotFound, NoContent>> Handler([FromRoute] Guid id, [FromServices] IRsvpService rsvpService)
+    public void MapEndpoints(IEndpointRouteBuilder endpoints)
+    {
+        endpoints.MapDelete("/rsvps/{id}", Handler)
+            .WithMetadata(new SwaggerOperationAttribute("Remove an RSVP"));
+    }
+
+    private static async Task<Results<NotFound, NoContent>> Handler([FromRoute] Guid id, [FromServices] IRsvpService rsvpService)
     {
         var rsvpToRemove = await rsvpService.GetRsvpByIdAsync(id);
         if (rsvpToRemove is null)

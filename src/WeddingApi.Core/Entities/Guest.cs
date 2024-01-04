@@ -1,6 +1,8 @@
-﻿namespace WeddingApi.Core.Entities;
+﻿using WeddingApi.Core.Interfaces;
 
-public class Guest
+namespace WeddingApi.Core.Entities;
+
+public class Guest : IEntity
 {
     public Guid Id { get; set; }
     public required string Name { get; set; }

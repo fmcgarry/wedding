@@ -4,11 +4,11 @@ using WeddingApi.Core.Entities;
 using WeddingApi.Core.Interfaces;
 using WeddingApi.Guests.DTOs;
 
-namespace WeddingApi.Guests;
+namespace WeddingApi.Guests.Endpoints;
 
-public static partial class GuestEndpoints
+public static class UpdateGuest
 {
-    public static async Task<Results<NotFound, NoContent>> UpdateGuest([FromRoute] Guid id, [FromBody] GuestDTO guest, [FromServices] IGuestService guestService)
+    public static async Task<Results<NotFound, NoContent>> Handler([FromRoute] Guid id, [FromBody] GuestDTO guest, [FromServices] IGuestService guestService)
     {
         var guestToRemove = await guestService.GetGuestByIdAsync(id);
         if (guestToRemove == null)

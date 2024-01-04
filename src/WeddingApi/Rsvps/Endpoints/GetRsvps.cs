@@ -1,24 +1,48 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
+using Wedding.Core.Interfaces;
+using WeddingApi.Core.Entities.RsvpAggregate;
 using WeddingApi.Core.Interfaces;
-using WeddingApi.Rsvps.Dtos;
+using WeddingApi.Rsvps.DTOs;
 
 namespace WeddingApi.Rsvps.Endpoints;
 
-public static class GetRsvps
+public class GetRsvps
 {
-    public static async Task<Ok<List<RsvpDTO>>> Handler([FromServices] IRsvpService rsvpService)
+    public void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
-        var rsvps = await rsvpService.GetRsvpsAsync();
+        endpoints.MapGet("/rsvps", Handler)
+            .WithMetadata(new SwaggerOperationAttribute("Gets all RSVPs"));
+    }
 
+    private static async Task<Results<NotFound, Ok<List<RsvpDTO>>>> Handler([FromServices] IRsvpService rsvpService, [FromServices] IEntityModelMapper<Rsvp, RsvpDTO> mapper, [FromQuery] Guid? id)
+    {
         var results = new List<RsvpDTO>();
 
-        foreach (var rsvp in rsvps)
+        if (id is not null)
         {
-            results.Add(new RsvpDTO()
-            {
+            var rsvp = await rsvpService.GetRsvpByIdAsync(id.Value);
 
-            });
+            if (rsvp is not null)
+            {
+                var rsvpDTO = mapper.MapModelFrom(rsvp);
+                results.Add(rsvpDTO);
+            }
+            else
+            {
+                return TypedResults.NotFound();
+            }
+        }
+        else
+        {
+            var rsvps = await rsvpService.GetRsvpsAsync();
+
+            foreach (var rsvp in rsvps)
+            {
+                var rsvpDTO = mapper.MapModelFrom(rsvp);
+                results.Add(rsvpDTO);
+            }
         }
 
         return TypedResults.Ok(results);

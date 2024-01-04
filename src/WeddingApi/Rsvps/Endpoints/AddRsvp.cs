@@ -1,23 +1,44 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using WeddingApi.Core.Entities.RsvpAggregate;
 using WeddingApi.Core.Interfaces;
-using WeddingApi.Rsvps.Dtos;
+using static WeddingApi.Rsvps.Endpoints.AddRsvp;
 
-namespace WeddingApi.Rsvps.Endpoints
+namespace WeddingApi.Rsvps.Endpoints;
+
+public class AddRsvp : Endpoint<AddRsvpRequest, AddRsvpResponse>
 {
-    public static class AddRsvp
+    public void Map(IEndpointRouteBuilder endpoints)
     {
-        public static async Task<Ok> Handler([FromBody] RsvpDTO rsvp, [FromServices] IRsvpService rsvpService)
+        endpoints.MapPost("/rsvps", Handler)
+            .WithMetadata(new SwaggerOperationAttribute("Add a new RSVP"));
+    }
+
+    public static async Task<Ok> Handler([FromBody] AddRsvpRequest rsvp, [FromServices] IRsvpService rsvpService)
+    {
+        var rsvpModel = new Rsvp()
         {
-            var rsvpModel = new Rsvp()
-            {
 
-            };
+        };
 
-            await rsvpService.AddRsvpAsync(rsvpModel);
+        await rsvpService.AddRsvpAsync(rsvpModel);
 
-            return TypedResults.Ok();
-        }
+        return TypedResults.Ok();
+    }
+
+    public override Task<AddRsvpResponse> HandleAsync(AddRsvpRequest request)
+    {
+        throw new NotImplementedException();
+    }
+
+    public record AddRsvpRequest() : IRequest
+    {
+
+    }
+
+    public record AddRsvpResponse() : IResponse
+    {
+
     }
 }

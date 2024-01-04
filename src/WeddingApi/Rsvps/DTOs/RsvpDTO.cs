@@ -1,6 +1,5 @@
-﻿namespace WeddingApi.Rsvps.Dtos
+﻿namespace WeddingApi.Rsvps.DTOs;
+
+public class RsvpDTO
 {
-    public class RsvpDTO
-    {
-    }
 }

@@ -1,19 +1,17 @@
-using WeddingApi.Guests;
+using WeddingApi;
 using WeddingApi.Infrastructure.Photos;
 using WeddingApi.Photos;
-using WeddingApi.Rsvps;
 using WeddingApi.SongRequests;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(config => config.EnableAnnotations());
 
 builder.Services.AddPhotoClient(builder.Configuration);
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(config => config.EnableAnnotations());
+// Uses ModuleExtensions.cs
+builder.Services.RegisterModuleServices();
 
 var app = builder.Build();
 
@@ -25,12 +23,12 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
 
+// Uses my way
 app.MapPhotoApi();
-app.MapRsvpApi();
-app.MapGuestApi();
 app.MapSongRequestApi();
+
+// Uses ModuleExtensions.cs
+app.MapModuleEndpoints();
 
 app.Run();

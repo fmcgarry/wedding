@@ -4,11 +4,11 @@ using WeddingApi.Core.Entities;
 using WeddingApi.Core.Interfaces;
 using WeddingApi.Guests.DTOs;
 
-namespace WeddingApi.Guests;
+namespace WeddingApi.Guests.Endpoints;
 
-public static partial class GuestEndpoints
+public static class AddGuest
 {
-    public static async Task<CreatedAtRoute<GuestDTO>> AddGuest([FromBody] GuestDTO guest, [FromServices] IGuestService guestService)
+    public static async Task<CreatedAtRoute<GuestDTO>> Handler([FromBody] GuestDTO guest, [FromServices] IGuestService guestService)
     {
         var guestModel = new Guest()
         {
