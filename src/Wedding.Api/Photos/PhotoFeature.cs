@@ -5,7 +5,7 @@ using Wedding.Core.Services;
 
 namespace Wedding.Api.Photos;
 
-public class PhotoModule : IModule
+public class PhotoFeature : IFeature
 {
     public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
     {

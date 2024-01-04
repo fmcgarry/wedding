@@ -5,7 +5,7 @@ using Wedding.Core.Services;
 
 namespace Wedding.Api.SongRequests;
 
-public class SongRequestModule : IModule
+public class SongRequestFeature : IFeature
 {
     public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
     {

@@ -8,8 +8,8 @@ builder.Services.AddSwaggerGen(config => config.EnableAnnotations());
 
 builder.Services.AddPhotoClient(builder.Configuration);
 
-// Uses ModuleExtensions.cs
-builder.Services.RegisterModuleServices();
+// Uses FeatureExtensions.cs
+builder.Services.RegisterFeatureServices();
 
 var app = builder.Build();
 
@@ -22,7 +22,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Uses ModuleExtensions.cs
-app.MapModuleEndpoints();
+// Uses FeatureExtensions.cs
+app.MapFeatureEndpoints();
 
 app.Run();

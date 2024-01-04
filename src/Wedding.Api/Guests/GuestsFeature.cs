@@ -6,7 +6,7 @@ using Wedding.Core.Interfaces;
 
 namespace Wedding.Api.Guests;
 
-public class GuestsModule : IModule
+public class GuestsFeature : IFeature
 {
     public IServiceCollection RegisterServices(IServiceCollection services)
     {
