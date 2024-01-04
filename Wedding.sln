@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Api", "src\WeddingApi\Wedding.Api.csproj", "{A9E00FFE-5A7C-4EA0-B94C-25C764139458}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Api", "src\Wedding.Api\Wedding.Api.csproj", "{A9E00FFE-5A7C-4EA0-B94C-25C764139458}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Core", "src\WeddingApi.Core\Wedding.Core.csproj", "{A096014E-808C-43CD-9AA9-5F94D337A3BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Core", "src\Wedding.Core\Wedding.Core.csproj", "{A096014E-808C-43CD-9AA9-5F94D337A3BE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Infrastructure", "src\WeddingApi.Infrastructure\Wedding.Infrastructure.csproj", "{95BADFAA-DC07-4142-8483-F8131345B600}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Infrastructure", "src\Wedding.Infrastructure\Wedding.Infrastructure.csproj", "{95BADFAA-DC07-4142-8483-F8131345B600}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
