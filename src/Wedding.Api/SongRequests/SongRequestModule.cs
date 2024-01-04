@@ -1,19 +1,17 @@
 ﻿using Swashbuckle.AspNetCore.Annotations;
 using Wedding.Api.SongRequests.Endpoints;
+using Wedding.Core.Interfaces;
+using Wedding.Core.Services;
 
 namespace Wedding.Api.SongRequests;
 
-public static class SongRequestEndpoints
+public class SongRequestModule : IModule
 {
-    public static void MapSongRequestApi(this WebApplication app)
+    public IEndpointRouteBuilder MapEndpoints(IEndpointRouteBuilder endpoints)
     {
-        app.MapGroup("/songrequests")
-            .MapSongRequestEndpoints()
+        var group = endpoints.MapGroup("/songrequests")
             .WithTags("Song Requests");
-    }
 
-    private static RouteGroupBuilder MapSongRequestEndpoints(this RouteGroupBuilder group)
-    {
         group.MapGet("/", GetSongRequests.Handler)
             .WithMetadata(new SwaggerOperationAttribute("Gets all song requests"));
 
@@ -30,5 +28,12 @@ public static class SongRequestEndpoints
             .WithMetadata(new SwaggerOperationAttribute("Delete a specifc song request"));
 
         return group;
+    }
+
+    public IServiceCollection RegisterServices(IServiceCollection services)
+    {
+        services.AddScoped<ISongRequestService, SongRequestService>();
+
+        return services;
     }
 }

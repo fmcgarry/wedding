@@ -1,5 +1,4 @@
 using Wedding.Api;
-using Wedding.Api.SongRequests;
 using Wedding.Infrastructure.Photos;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,9 +21,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// Uses my way
-app.MapSongRequestApi();
 
 // Uses ModuleExtensions.cs
 app.MapModuleEndpoints();
