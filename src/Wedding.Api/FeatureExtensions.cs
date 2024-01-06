@@ -3,15 +3,14 @@
 public static class FeatureExtensions
 {
     // this could also be added into the DI container
-    static readonly List<IFeature> registeredFeatures = new();
+    static readonly List<IFeature> _registeredFeatures = [];
 
-    public static IServiceCollection RegisterFeatureServices(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection RegisterFeatures(this IServiceCollection services, IConfiguration configuration)
     {
         var features = DiscoverFeatures();
         foreach (var feature in features)
         {
-            feature.RegisterServices(services, configuration);
-            registeredFeatures.Add(feature);
+            _registeredFeatures.Add(feature);
         }
 
         return services;
@@ -19,7 +18,7 @@ public static class FeatureExtensions
 
     public static WebApplication MapFeatureEndpoints(this WebApplication app)
     {
-        foreach (var feature in registeredFeatures)
+        foreach (var feature in _registeredFeatures)
         {
             feature.MapEndpoints(app);
         }

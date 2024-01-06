@@ -1,4 +1,5 @@
 using Wedding.Api;
+using Wedding.UseCases;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,7 +7,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(config => config.EnableAnnotations());
 
 // Uses FeatureExtensions.cs
-builder.Services.RegisterFeatureServices(builder.Configuration);
+builder.Services.RegisterFeatures(builder.Configuration);
+builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 

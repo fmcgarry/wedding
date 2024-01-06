@@ -1,6 +1,8 @@
-﻿namespace Wedding.Core.Entities;
+﻿using Wedding.Core.Interfaces;
 
-public class SongRequest
+namespace Wedding.Core.Entities;
+
+public class SongRequest : IEntity
 {
     public Guid Id { get; set; }
     public required string Title { get; set; }
