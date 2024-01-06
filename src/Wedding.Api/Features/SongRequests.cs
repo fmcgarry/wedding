@@ -11,7 +11,7 @@ public class SongRequests : IFeature
 {
     public void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
-        var group = endpoints.MapGroup("/songrequests").WithTags("SongRequestModel Requests");
+        var group = endpoints.MapGroup("/songrequests").WithTags("Song Requests");
 
         group.MapGet("/", GetAllSongRequests)
             .WithMetadata(new SwaggerOperationAttribute("Gets all song requests"));
@@ -64,7 +64,6 @@ public class SongRequests : IFeature
         {
             results.Add(new SongRequestModel()
             {
-
             });
         }
 
