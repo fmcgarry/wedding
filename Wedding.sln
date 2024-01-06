@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Core", "src\Wedding
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.Infrastructure", "src\Wedding.Infrastructure\Wedding.Infrastructure.csproj", "{95BADFAA-DC07-4142-8483-F8131345B600}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wedding.UseCases", "src\Wedding.Application\Wedding.UseCases.csproj", "{154FBAF8-8DDD-46F3-B13D-8E5135B32CFF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wedding.UseCases", "src\Wedding.UseCases\Wedding.UseCases.csproj", "{154FBAF8-8DDD-46F3-B13D-8E5135B32CFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
