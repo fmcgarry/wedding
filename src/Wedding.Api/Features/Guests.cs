@@ -33,7 +33,7 @@ public class Guests : IFeature
 
         group.MapPut("/{id:Guid}", async (Guid id, [FromBody] GuestModel guest, [FromServices] IMediator mediator) =>
         {
-            await mediator.Send(new UpdateGuestCommand(id, guest));
+            await mediator.Send(new UpdateGuestInfoCommand(id, guest));
             return Results.NoContent();
         }).WithMetadata(new SwaggerOperationAttribute("Updates a guest by id"));
 
