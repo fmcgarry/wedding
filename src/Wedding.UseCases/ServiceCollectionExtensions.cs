@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Wedding.Core.Entities;
+using Wedding.Core.Entities.GuestAggregate;
 using Wedding.Core.Interfaces;
 using Wedding.Core.Services;
 using Wedding.UseCases.Guests;

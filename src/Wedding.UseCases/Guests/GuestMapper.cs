@@ -1,4 +1,4 @@
-﻿using Wedding.Core.Entities;
+﻿using Wedding.Core.Entities.GuestAggregate;
 using Wedding.Core.Interfaces;
 
 namespace Wedding.UseCases.Guests;
@@ -13,6 +13,7 @@ public class GuestMapper : IEntityModelMapper<Guest, GuestModel>
 
         var guest = new Guest()
         {
+            Id = Guid.NewGuid(),
             Name = model.Name,
             Email = model.Email,
         };

@@ -1,4 +1,4 @@
-﻿namespace Wedding.Core.Entities.RsvpAggregate;
+﻿namespace Wedding.Core.Entities.GuestAggregate;
 
 public enum FoodChoice
 {

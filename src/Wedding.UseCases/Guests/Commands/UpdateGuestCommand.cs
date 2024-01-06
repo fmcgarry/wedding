@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using Wedding.Core.Entities;
+using Wedding.Core.Entities.GuestAggregate;
 using Wedding.Core.Interfaces;
 
 namespace Wedding.UseCases.Guests.Commands;

@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Wedding.Application\Wedding.UseCases.csproj" />
     <ProjectReference Include="..\Wedding.Infrastructure\Wedding.Infrastructure.csproj" />
+    <ProjectReference Include="..\Wedding.UseCases\Wedding.UseCases.csproj" />
   </ItemGroup>
 
 </Project>

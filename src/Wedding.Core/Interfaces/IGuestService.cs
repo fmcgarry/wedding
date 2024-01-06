@@ -1,4 +1,4 @@
-﻿using Wedding.Core.Entities;
+﻿using Wedding.Core.Entities.GuestAggregate;
 
 namespace Wedding.Core.Interfaces;
 
