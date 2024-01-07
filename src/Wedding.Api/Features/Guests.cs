@@ -21,8 +21,10 @@ public class Guests : IFeature
 
         group.MapPost("/", async ([FromBody] GuestModel guest, [FromServices] IMediator mediator) =>
         {
-            await mediator.Send(new AddGuestCommand(guest.Name, guest.Email));
+            Guid id = await mediator.Send(new AddGuestCommand(guest.Name, guest.Email));
             return TypedResults.CreatedAtRoute(guest);
+
+            return TypedResults.Created(id.ToString(), guest);
         }).WithMetadata(new SwaggerOperationAttribute("Adds a guest"));
 
         group.MapGet("/{id:Guid}", async (Guid id, [FromServices] IMediator mediator) =>
