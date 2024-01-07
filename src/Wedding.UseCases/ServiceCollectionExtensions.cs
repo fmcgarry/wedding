@@ -12,7 +12,7 @@ namespace Wedding.UseCases;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    public static IServiceCollection AddUseCasesServices(this IServiceCollection services)
     {
         services.AddMediatR(config =>
         {
