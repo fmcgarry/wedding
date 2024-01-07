@@ -1,20 +1,20 @@
 ﻿using MediatR;
-using Wedding.Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace Wedding.UseCases.Guests.Commands;
 
 public record RemoveGuestCommand(Guid Id) : IRequest;
 
-public class RemoveGuestHandler(IGuestService _guestService) : IRequestHandler<RemoveGuestCommand>
+public class RemoveGuestHandler(IApplicationDbContext _dbContext) : IRequestHandler<RemoveGuestCommand>
 {
     public async Task Handle(RemoveGuestCommand request, CancellationToken cancellationToken)
     {
-        var guest = await _guestService.GetGuestByIdAsync(request.Id);
+        var guest = await _dbContext.Guests.SingleOrDefaultAsync(guest => guest.Id == request.Id, cancellationToken);
 
         if (guest is not null)
         {
-            await _guestService.RemoveGuestAsync(guest.Id);
+            _dbContext.Guests.Remove(guest);
+            await _dbContext.SaveChangesAsync(cancellationToken);
         }
     }
 }
-

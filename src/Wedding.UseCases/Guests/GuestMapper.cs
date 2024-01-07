@@ -7,13 +7,9 @@ public class GuestMapper : IEntityModelMapper<Guest, GuestModel>
 {
     public Guest MapEntityFrom(GuestModel model)
     {
-        ArgumentNullException.ThrowIfNull(model, nameof(model));
-        ArgumentNullException.ThrowIfNull(model.Name, nameof(model.Name));
-        ArgumentNullException.ThrowIfNull(model.Email, nameof(model.Email));
-
         var guest = new Guest()
         {
-            Id = Guid.NewGuid(),
+            Id = model.Id,
             Name = model.Name,
             Email = model.Email,
         };
@@ -23,12 +19,13 @@ public class GuestMapper : IEntityModelMapper<Guest, GuestModel>
 
     public GuestModel MapModelFrom(Guest entity)
     {
-        var guestDto = new GuestModel()
+        var guestModel = new GuestModel()
         {
+            Id = entity.Id,
             Name = entity.Name,
             Email = entity.Email
         };
 
-        return guestDto;
+        return guestModel;
     }
 }

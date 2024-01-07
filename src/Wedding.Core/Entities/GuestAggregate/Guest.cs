@@ -10,4 +10,18 @@ public class Guest : IEntity
     public bool IsAttending { get; set; }
     public DateTime? RsvpDate { get; set; }
     public FoodChoice? DinnerSelection { get; set; }
+
+    public void SetAttending(FoodChoice foodChoice)
+    {
+        IsAttending = true;
+        DinnerSelection = foodChoice;
+        RsvpDate = DateTime.UtcNow;
+    }
+
+    public void Bailed()
+    {
+        IsAttending = false;
+        DinnerSelection = FoodChoice.None;
+        RsvpDate = DateTime.MinValue;
+    }
 }

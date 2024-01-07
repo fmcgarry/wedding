@@ -19,14 +19,12 @@ public static class ServiceCollectionExtensions
             config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
 
-        services.AddScoped<IGuestService, GuestService>();
         services.AddScoped<IEntityModelMapper<Guest, GuestModel>, GuestMapper>();
+        services.AddScoped<IEntityModelMapper<Photo, PhotoModel>, PhotoMapper>();
+        services.AddScoped<IEntityModelMapper<SongRequest, SongRequestModel>, SongRequestMapper>();
 
         services.AddScoped<IPhotoService, PhotoService>();
-        services.AddScoped<IEntityModelMapper<Photo, PhotoModel>, PhotoMapper>();
-
         services.AddScoped<ISongRequestService, SongRequestService>();
-        services.AddScoped<IEntityModelMapper<SongRequest, SongRequestModel>, SongRequestMapper>();
 
         return services;
     }
