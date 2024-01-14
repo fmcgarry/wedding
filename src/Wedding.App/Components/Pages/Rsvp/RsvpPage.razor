@@ -1,0 +1,61 @@
+﻿@page "/rsvp"
+
+<PageTitle>Rsvp</PageTitle>
+
+<h1>Hello, Person!</h1>
+
+@if (_isAttending is null)
+{
+    <h2>We're getting married!</h2>
+    <h3>Can you join us?</h3>
+    <button class="btn btn-danger" @onclick="() => _isAttending = false">Nope, sorry.</button>
+    <button class="btn btn-success" @onclick="() => _isAttending = true">Yes!</button>
+}
+else
+{
+    if (_isAttending == true)
+    {
+        <EditForm Model="@Rsvp" OnValidSubmit="@Submit">
+            <DataAnnotationsValidator />
+            <div class="mb-3">
+                <label for="inputPhone" class="form-label">Phone</label>
+                <InputText class="form-control" id="inputPhone" @bind-Value="Rsvp.Phone"></InputText>
+            </div>
+            <div class="mb-5">
+                <label for="inputDinnerSelection" class="form-label">What would you like to eat?</label>
+                <InputSelect class="form-control" id="inputDinnerSelection" @bind-Value="Rsvp.DinnerSelection">
+                    <option value="@DinnerSelection.Chicken">Chicken</option>
+                    <option value="@DinnerSelection.Meatloaf">Meatloaf</option>
+                </InputSelect>
+            </div>
+            @for (int i = 0; i < Rsvp.Guests.Count; i++)
+            {
+                var guest = Rsvp.Guests[i];
+
+                <h3>Guest @i</h3>
+                <div class="mb-3">
+                    <label for="@($"inputGuestName{i}")" class="form-label">Name</label>
+                    <InputText class="form-control" id="@($"inputGuestName{i}")" @bind-Value="guest.Name"></InputText>
+                </div>
+                <div class="mb-5">
+                    <label for="@($"inputGuestDinnerSelection{i}")" class="form-label">What would they like to eat?</label>
+                    <InputSelect class="form-control" id="@($"inputGuestDinnerSelection{i}")" @bind-Value="guest.DinnerSelection">
+                        <option value="@DinnerSelection.Chicken">Chicken</option>
+                        <option value="@DinnerSelection.Meatloaf">Meatloaf</option>
+                    </InputSelect>
+                </div>
+            }
+            <ValidationSummary />
+            <div class="mb-3">
+                <button class="btn btn-secondary" onclick="@(() => Rsvp.Guests.Add(new()))">Add Guest +</button>
+            </div>
+            <div>
+                <button class="btn btn-success" type="submit">Send RSVP</button>
+            </div>
+        </EditForm>
+    }
+    else
+    {
+        <p>We're sorry to hear that, but thank you for responding!</p>
+    }
+}
