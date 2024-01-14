@@ -1,5 +1,5 @@
 ﻿namespace Wedding.App.Components.Pages;
 
-public partial class Photos
+public partial class Gallery
 {
 }
