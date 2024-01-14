@@ -2,14 +2,26 @@
 
 <PageTitle>Rsvp</PageTitle>
 
-<h1>Hello, Person!</h1>
+<div class="row mb-4">
+    <h1>Hello, Person!</h1>
+</div>
 
 @if (_isAttending is null)
 {
-    <h2>We're getting married!</h2>
-    <h3>Can you join us?</h3>
-    <button class="btn btn-danger" @onclick="() => _isAttending = false">Nope, sorry.</button>
-    <button class="btn btn-success" @onclick="() => _isAttending = true">Yes!</button>
+    <div class="row">
+        <h2>We're getting married!</h2>
+    </div>
+    <div class="row">
+        <h3>Can you join us?</h3>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-danger" @onclick="() => _isAttending = false">Regretfully not</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" @onclick="() => _isAttending = true">Of course!</button>
+        </div>
+    </div>
 }
 else
 {
