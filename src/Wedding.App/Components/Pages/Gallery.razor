@@ -4,6 +4,31 @@
 
 <h3>Gallery</h3>
 
-@code {
+<div class="row">
 
+</div>
+<div class="row">
+    @foreach (var image in _images)
+    {
+        <div class="col-3 pb-4 ">
+             <img src="@image" class="img-thumbnail" alt="a wedding cake" data-bs-toggle="modal" data-bs-target="#imageModal" @onclick="() => _selectedImage = image">
+        </div>
+    }
+</div>
+
+@if (_selectedImage is not null)
+{
+    <div id="imageModal" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-l">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="@_selectedImage" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
 }
