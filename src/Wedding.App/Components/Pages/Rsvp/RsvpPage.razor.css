@@ -1,0 +1,13 @@
+﻿.body, .navbar {
+    height: calc(100% - 40px);
+    /*https://stackoverflow.com/questions/17401972/bootstrap-100-height-with-navbar*/
+}
+
+.bg-image {
+    background-image: url('/img/wedding-background.jpg');
+    height: 100vh;
+}
+
+header#navheader.top-row {
+    margin-bottom: unset !important;
+}

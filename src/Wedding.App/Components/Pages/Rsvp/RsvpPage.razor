@@ -2,72 +2,70 @@
 
 <PageTitle>Rsvp</PageTitle>
 
-<div class="row mb-4">
-    <h1>Hello, Person!</h1>
-</div>
+<div class="bg-image">
+    <div class="row mb-4">
+        <h1>Hello, Person!</h1>
+    </div>
 
-@if (_isAttending is null)
-{
-    <div class="row">
-        <h2>We're getting married!</h2>
-    </div>
-    <div class="row">
-        <h3>Can you join us?</h3>
-    </div>
-    <div class="row">
-        <div class="col">
-            <button class="btn btn-danger" @onclick="() => _isAttending = false">Regretfully not</button>
-        </div>
-        <div class="col">
-            <button class="btn btn-success" @onclick="() => _isAttending = true">Of course!</button>
-        </div>
-    </div>
-}
-else
-{
-    if (_isAttending == true)
+    @if (_isAttending is null)
     {
-        <EditForm Model="@Rsvp" OnValidSubmit="@Submit">
-            <DataAnnotationsValidator />
-            <div class="mb-3">
-                <label for="inputPhone" class="form-label">Phone</label>
-                <InputText class="form-control" id="inputPhone" @bind-Value="Rsvp.Phone"></InputText>
+        <div class="px-4 py-5 my-5 text-center">
+            <h1 class="display-5 fw-bold">We're getting married!</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Can you join us on our special day?</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button class="btn btn-primary btn-lg px-4 gap-3" @onclick="() => _isAttending = true">Of course!</button>
+                    <button class="btn btn-outline-secondary btn-lg px-4" @onclick="() => _isAttending = false">Regretfully not</button>
+                </div>
             </div>
-            <div class="mb-5">
-                <label for="inputDinnerSelection" class="form-label">What would you like to eat?</label>
-                <InputSelect class="form-control" id="inputDinnerSelection" @bind-Value="Rsvp.DinnerSelection">
-                    <option value="@DinnerSelection.Chicken">Chicken</option>
-                    <option value="@DinnerSelection.Meatloaf">Meatloaf</option>
-                </InputSelect>
-            </div>
-            @for (int i = 0; i < Rsvp.Guests.Count; i++)
-            {
-                var guest = Rsvp.Guests[i];
-
-                <h3>Guest @i</h3>
+        </div>
+    }
+    else
+    {
+        if (_isAttending == true)
+        {
+            <EditForm Model="@Rsvp" OnValidSubmit="@Submit">
+                <DataAnnotationsValidator />
                 <div class="mb-3">
-                    <label for="@($"inputGuestName{i}")" class="form-label">Name</label>
-                    <InputText class="form-control" id="@($"inputGuestName{i}")" @bind-Value="guest.Name"></InputText>
+                    <label for="inputPhone" class="form-label">Phone</label>
+                    <InputText class="form-control" id="inputPhone" @bind-Value="Rsvp.Phone"></InputText>
                 </div>
                 <div class="mb-5">
-                    <label for="@($"inputGuestDinnerSelection{i}")" class="form-label">What would they like to eat?</label>
-                    <InputSelect class="form-control" id="@($"inputGuestDinnerSelection{i}")" @bind-Value="guest.DinnerSelection">
+                    <label for="inputDinnerSelection" class="form-label">What would you like to eat?</label>
+                    <InputSelect class="form-control" id="inputDinnerSelection" @bind-Value="Rsvp.DinnerSelection">
                         <option value="@DinnerSelection.Chicken">Chicken</option>
                         <option value="@DinnerSelection.Meatloaf">Meatloaf</option>
                     </InputSelect>
                 </div>
-            }
-            <ValidationSummary />
-            <div class="mb-3">
-                <button class="btn btn-secondary" onclick="@(() => Rsvp.Guests.Add(new()))">Add Guest +</button>
-            </div>
-            <div>
-                <button class="btn btn-success" type="submit">Send RSVP</button>
-            </div>
-        </EditForm>
+                @for (int i = 0; i < Rsvp.Guests.Count; i++)
+                {
+                    var guest = Rsvp.Guests[i];
+
+                    <h3>Guest @i</h3>
+                    <div class="mb-3">
+                        <label for="@($"inputGuestName{i}")" class="form-label">Name</label>
+                        <InputText class="form-control" id="@($"inputGuestName{i}")" @bind-Value="guest.Name"></InputText>
+                    </div>
+                    <div class="mb-5">
+                        <label for="@($"inputGuestDinnerSelection{i}")" class="form-label">What would they like to eat?</label>
+                        <InputSelect class="form-control" id="@($"inputGuestDinnerSelection{i}")" @bind-Value="guest.DinnerSelection">
+                            <option value="@DinnerSelection.Chicken">Chicken</option>
+                            <option value="@DinnerSelection.Meatloaf">Meatloaf</option>
+                        </InputSelect>
+                    </div>
+                }
+                <ValidationSummary />
+                <div class="mb-3">
+                    <button class="btn btn-secondary" onclick="@(() => Rsvp.Guests.Add(new()))">Add Guest +</button>
+                </div>
+                <div>
+                    <button class="btn btn-success" type="submit">Send RSVP</button>
+                </div>
+            </EditForm>
+        }
+        else
+        {
+            <p>We're sorry to hear that, but thank you for responding!</p>
+        }
     }
-    else
-    {
-        <p>We're sorry to hear that, but thank you for responding!</p>
-    }
-}
+</div>
