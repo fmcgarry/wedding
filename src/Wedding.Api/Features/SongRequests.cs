@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using Wedding.Core.Entities;
-using Wedding.Core.Interfaces;
 using Wedding.UseCases.SongRequests;
+using Wedding.UseCases.SongRequests.Commands;
+using Wedding.UseCases.SongRequests.Queries;
 
 namespace Wedding.Api.SongRequests;
 
@@ -29,73 +30,37 @@ public class SongRequests : IFeature
             .WithMetadata(new SwaggerOperationAttribute("Delete a specific song request"));
     }
 
-    private static async Task<CreatedAtRoute<SongRequestModel>> AddSongRequest([FromBody] SongRequestModel songRequest, [FromServices] ISongRequestService songRequestService)
+    private static async Task<CreatedAtRoute<SongRequestModel>> AddSongRequest([FromBody] SongRequestModel songRequest, [FromServices] IMediator mediator)
     {
-        var songRequestModel = new SongRequest()
-        {
-            Title = ""
-        };
-
-        await songRequestService.AddSongRequestAsync(songRequestModel);
+        await mediator.Send(new AddSongRequestCommand(songRequest));
 
         return TypedResults.CreatedAtRoute(songRequest, nameof(AddSongRequest));
     }
 
-    private static async Task<Results<NotFound, Ok<SongRequestModel>>> GetSongRequest([FromRoute] Guid id, [FromServices] ISongRequestService songRequestService)
+    private static async Task<Results<NotFound, Ok<SongRequestModel>>> GetSongRequest([FromRoute] Guid id, [FromServices] IMediator mediator)
     {
-        var songRequest = await songRequestService.GetSongRequestByIdAsync(id);
-        if (songRequest == null)
-        {
-            return TypedResults.NotFound();
-        }
+        var songRequest = await mediator.Send(new GetSongRequestByIdQuery(id));
 
-        var songRequestModel = new SongRequestModel();
-
-        return TypedResults.Ok(songRequestModel);
+        return TypedResults.Ok(songRequest);
     }
 
-    private static async Task<Ok<List<SongRequestModel>>> GetAllSongRequests([FromServices] ISongRequestService songRequestService)
+    private static async Task<Ok<IEnumerable<SongRequestModel>>> GetAllSongRequests([FromServices] IMediator mediator)
     {
-        var songRequests = await songRequestService.GetSongRequestsAsync();
+        var songRequests = await mediator.Send(new ListSongRequestsQuery());
 
-        var results = new List<SongRequestModel>();
-
-        foreach (var songRequest in songRequests)
-        {
-            results.Add(new SongRequestModel()
-            {
-            });
-        }
-
-        return TypedResults.Ok(results);
+        return TypedResults.Ok(songRequests);
     }
 
-    private static async Task<Results<NotFound, NoContent>> RemoveSongRequest(Guid id, [FromServices] ISongRequestService songRequestService)
+    private static async Task<Results<NotFound, NoContent>> RemoveSongRequest(Guid id, [FromServices] IMediator mediator)
     {
-        var songRequestToRemove = songRequestService.GetSongRequestByIdAsync(id);
-
-        if (songRequestToRemove is not null)
-        {
-            await songRequestService.RemoveSongRequestAsync(id);
-        }
+        await mediator.Send(new RemoveSongRequestCommand(id));
 
         return TypedResults.NoContent();
     }
 
-    private static async Task<Results<NotFound, NoContent>> UpdateSongRequest([FromRoute] Guid id, [FromBody] SongRequestModel updatedSongRequest, [FromServices] ISongRequestService songRequestService)
+    private static async Task<Results<NotFound, NoContent>> UpdateSongRequest([FromRoute] Guid id, [FromBody] SongRequestModel updatedSongRequest, [FromServices] IMediator mediator)
     {
-        var existingSongRequest = songRequestService.GetSongRequestByIdAsync(id);
-        if (existingSongRequest is null)
-        {
-            return TypedResults.NotFound();
-        }
-
-        var songRequest = new SongRequest()
-        {
-            Title = ""
-        };
-
-        await songRequestService.UpdateSongRequestAsync(id, songRequest);
+        await mediator.Send(new UpdateSongRequestCommand());
 
         return TypedResults.NoContent();
     }
