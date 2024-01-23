@@ -4,6 +4,11 @@ namespace Wedding.Infrastructure.Photos;
 
 public class PhotoClient : IPhotoClient
 {
-    // Use the Google Photos API
-    // https://developers.google.com/photos/library/guides/get-started
+    public Task<IEnumerable<string>> GetPhotoUrlsAsync()
+    {
+        // Use the Google Photos API
+        // https://developers.google.com/photos/library/guides/get-started
+
+        throw new NotImplementedException();
+    }
 }

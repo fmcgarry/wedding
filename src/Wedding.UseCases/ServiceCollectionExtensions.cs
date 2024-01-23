@@ -3,7 +3,6 @@ using System.Reflection;
 using Wedding.Core.Entities;
 using Wedding.Core.Entities.GuestAggregate;
 using Wedding.Core.Interfaces;
-using Wedding.Core.Services;
 using Wedding.UseCases.Guests;
 using Wedding.UseCases.Photos;
 using Wedding.UseCases.SongRequests;
@@ -22,9 +21,6 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IEntityModelMapper<Guest, GuestModel>, GuestMapper>();
         services.AddScoped<IEntityModelMapper<Photo, PhotoModel>, PhotoMapper>();
         services.AddScoped<IEntityModelMapper<SongRequest, SongRequestModel>, SongRequestMapper>();
-
-        services.AddScoped<IPhotoService, PhotoService>();
-        services.AddScoped<ISongRequestService, SongRequestService>();
 
         return services;
     }
