@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Wedding.UseCases.Guests.Commands;
 
-public record RemoveGuestCommand(Guid Id) : IRequest;
+public record RemoveGuestCommand([property: Required] Guid Id) : IRequest;
 
 public class RemoveGuestHandler(IApplicationDbContext _dbContext) : IRequestHandler<RemoveGuestCommand>
 {

@@ -18,7 +18,7 @@ public static class ServiceCollectionExtensions
             config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
         });
 
-        services.AddScoped<IEntityModelMapper<Guest, GuestModel>, GuestMapper>();
+        services.AddScoped<IEntityModelMapper<Guest, GuestResponseModel>, GuestMapper>();
         services.AddScoped<IEntityModelMapper<Photo, PhotoModel>, PhotoMapper>();
         services.AddScoped<IEntityModelMapper<SongRequest, SongRequestModel>, SongRequestMapper>();
 

@@ -1,9 +1,10 @@
 ﻿using MediatR;
+using System.ComponentModel.DataAnnotations;
 using Wedding.Core.Entities.GuestAggregate;
 
 namespace Wedding.UseCases.Guests.Commands;
 
-public record AddGuestCommand(string Name, string? Email) : IRequest<Guid>;
+public record AddGuestCommand([property: Required] string Name, [property: EmailAddress] string? Email) : IRequest<Guid>;
 
 public class AddGuestHandler(IApplicationDbContext _dbContext) : IRequestHandler<AddGuestCommand, Guid>
 {

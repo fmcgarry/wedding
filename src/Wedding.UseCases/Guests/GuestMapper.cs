@@ -3,9 +3,9 @@ using Wedding.Core.Interfaces;
 
 namespace Wedding.UseCases.Guests;
 
-public class GuestMapper : IEntityModelMapper<Guest, GuestModel>
+public class GuestMapper : IEntityModelMapper<Guest, GuestResponseModel>
 {
-    public Guest MapEntityFrom(GuestModel model)
+    public Guest MapEntityFrom(GuestResponseModel model)
     {
         var guest = new Guest()
         {
@@ -17,14 +17,9 @@ public class GuestMapper : IEntityModelMapper<Guest, GuestModel>
         return guest;
     }
 
-    public GuestModel MapModelFrom(Guest entity)
+    public GuestResponseModel MapModelFrom(Guest entity)
     {
-        var guestModel = new GuestModel()
-        {
-            Id = entity.Id,
-            Name = entity.Name,
-            Email = entity.Email
-        };
+        var guestModel = new GuestResponseModel(entity.Id, entity.Name, entity.Email);
 
         return guestModel;
     }
