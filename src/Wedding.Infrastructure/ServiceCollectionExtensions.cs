@@ -14,8 +14,15 @@ public static class ServiceCollectionExtensions
     {
         services.AddDbContext<IApplicationDbContext, ApplicationDbContext>(options =>
         {
-            string? connectionString = configuration.GetConnectionString("ApplicationDb");
-            options.UseSqlServer(connectionString);
+            if (configuration.GetValue<bool>("UseInMemoryDb"))
+            {
+                options.UseInMemoryDatabase("wedding");
+            }
+            else
+            {
+                string? connectionString = configuration.GetConnectionString("ApplicationDb");
+                options.UseSqlServer(connectionString);
+            }
         });
 
         services.AddScoped<IPhotoClient, PhotoClient>();
