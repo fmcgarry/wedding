@@ -10,6 +10,7 @@ public class Guest : IEntity
     public bool IsAttending { get; set; }
     public DateTime? RsvpDate { get; set; }
     public FoodChoice? DinnerSelection { get; set; }
+    public Guid? InvitedBy { get; set; }
 
     public void SetAttending(FoodChoice foodChoice)
     {

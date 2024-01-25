@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using Wedding.Api.Guests.Accompanying;
 using Wedding.Api.Guests.Rsvp;
 using Wedding.Core.Exceptions;
 using Wedding.UseCases.Guests;
@@ -14,7 +15,7 @@ public class GuestsFeature : IFeature
 {
     public void MapEndpoints(IEndpointRouteBuilder endpoints)
     {
-        var group = endpoints.MapGroup("/guests").WithTags("GuestsFeature");
+        var group = endpoints.MapGroup("/guests").WithTags("Guests");
 
         group.MapGet("/", GetAllGuestsEndpoint)
             .WithMetadata(new SwaggerOperationAttribute("Lists all guests"));
@@ -33,6 +34,9 @@ public class GuestsFeature : IFeature
 
         group.MapPost("/{id:guid}/rsvp", RsvpEndpoint.Handler)
             .WithMetadata(new SwaggerOperationAttribute("Sets a guest as attending"));
+
+        group.MapGet("/{id:guid}/accompanying", AccompanyingEndpoint.Handler)
+            .WithMetadata(new SwaggerOperationAttribute("Lists all accompanying guests a guest has invited"));
     }
 
     private static async Task<Created<AddGuestCommand>> AddGuestEndpoint([FromBody] AddGuestCommand command, [FromServices] IMediator mediator)
