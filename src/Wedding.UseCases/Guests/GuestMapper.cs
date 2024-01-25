@@ -19,7 +19,15 @@ public class GuestMapper : IEntityModelMapper<Guest, GuestResponseModel>
 
     public GuestResponseModel MapModelFrom(Guest entity)
     {
-        var guestModel = new GuestResponseModel(entity.Id, entity.Name, entity.Email);
+        var guestModel = new GuestResponseModel()
+        {
+            Id = entity.Id,
+            Name = entity.Name,
+            Email = entity.Email,
+            DinnerSelection = entity.DinnerSelection,
+            RsvpDate = entity.RsvpDate,
+            IsAttending = entity.IsAttending,
+        };
 
         return guestModel;
     }
