@@ -1,0 +1,25 @@
+﻿@page "/manage-guests"
+@using Microsoft.AspNetCore.Components.QuickGrid;
+
+<PageTitle>Manage Guests</PageTitle>
+<h3>Manage Guests</h3>
+
+<div class="row">
+    <div class="col">
+        <div class="grid">
+            <QuickGrid Items="@_guests">
+                <PropertyColumn Property="@(g => g.Name)" Sortable="true" /> 
+                <PropertyColumn Property="@(g => g.HasRsvpd)" Sortable="true" /> 
+                <TemplateColumn>
+                    <button class="btn btn-warning btn-sm" @onclick="@(() => EditGuest(context))"><span class="bi bi-pencil-square" aria-hidden="true"></span></button>
+                    <button class="btn btn-danger btn-sm ms-2 float-end" @onclick="@(() => DeleteGuest(context))"><span class="bi bi-x-square" aria-hidden="true"></span></button>
+                </TemplateColumn>
+            </QuickGrid>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <button class="btn btn-primary" @onclick="AddGuest">Add Guest</button>
+    </div>
+</div>
