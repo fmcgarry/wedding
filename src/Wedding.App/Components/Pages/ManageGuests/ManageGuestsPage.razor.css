@@ -1,0 +1,10 @@
+﻿/* Stop the last page from collapsing to the number of rows on it */
+/*::deep tr {
+    height: 1.8rem;
+}*/
+
+ /*Assign default width to country name column*/
+::deep thead .column-fit {
+    /*white-space: nowrap;*/
+    width: 1%;
+}
