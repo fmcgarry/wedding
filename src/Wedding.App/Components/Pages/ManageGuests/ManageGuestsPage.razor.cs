@@ -6,8 +6,7 @@ namespace Wedding.App.Components.Pages.ManageGuests;
 public partial class ManageGuestsPage
 {
     private IQueryable<Guest>? _guests;
-
-    private PaginationState _guestsTablePagination = new() { ItemsPerPage = 10 };
+    private readonly PaginationState _guestsTablePagination = new() { ItemsPerPage = 10 };
 
     protected override void OnInitialized()
     {
