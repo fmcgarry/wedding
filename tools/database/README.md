@@ -8,7 +8,7 @@ Build the image:
 docker build -t fmcgarry/wedding .
 ```
 
-Spin up a new container, setting `SA_PASSWORD` with your own value:
+Spin up a new container, setting `MSSQL_SA_PASSWORD` with your own value:
 
 ```
 docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=StrongPassw0rd' -p 1433:1433 --name wedding-db -d fmcgarry/wedding
