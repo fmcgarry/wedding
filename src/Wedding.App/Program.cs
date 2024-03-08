@@ -1,5 +1,5 @@
-using Wedding.App.Clients.WeddingApi;
-using Wedding.App.Components;
+using WeddingApp.Clients.WeddingApi;
+using WeddingApp.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

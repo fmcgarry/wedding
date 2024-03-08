@@ -1,4 +1,4 @@
-﻿namespace Wedding.App.Components.Layout;
+﻿namespace WeddingApp.Components.Layout;
 
 public partial class NavMenu
 {

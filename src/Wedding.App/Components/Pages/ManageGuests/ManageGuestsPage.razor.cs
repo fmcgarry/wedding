@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Components.QuickGrid;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace Wedding.App.Components.Pages.ManageGuests;
+namespace WeddingApp.Components.Pages.ManageGuests;
 
 public partial class ManageGuestsPage
 {

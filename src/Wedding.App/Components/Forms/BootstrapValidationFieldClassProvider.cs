@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
 
-namespace Wedding.App.Components.Forms;
+namespace WeddingApp.Components.Forms;
 
 public class BootstrapValidationFieldClassProvider : FieldCssClassProvider
 {

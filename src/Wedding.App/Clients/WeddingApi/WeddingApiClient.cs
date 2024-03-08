@@ -1,6 +1,6 @@
-﻿using Wedding.App.Components.Pages.Rsvp;
+﻿using WeddingApp.Components.Pages.Rsvp;
 
-namespace Wedding.App.Clients.WeddingApi;
+namespace WeddingApp.Clients.WeddingApi;
 
 public class WeddingApiClient(ILogger<WeddingApiClient> _logger, HttpClient _httpClient) : IWeddingApiClient
 {

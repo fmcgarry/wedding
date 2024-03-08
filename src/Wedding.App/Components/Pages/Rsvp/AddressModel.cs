@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Wedding.App.Components.Pages.Rsvp;
+namespace WeddingApp.Components.Pages.Rsvp;
 
 public class AddressModel
 {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using Wedding.App.Clients.WeddingApi;
-using Wedding.App.Components.Forms;
+using WeddingApp.Clients.WeddingApi;
+using WeddingApp.Components.Forms;
 
-namespace Wedding.App.Components.Pages.Rsvp;
+namespace WeddingApp.Components.Pages.Rsvp;
 
 public partial class RsvpPage
 {

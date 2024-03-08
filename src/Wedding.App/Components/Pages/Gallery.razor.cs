@@ -1,4 +1,4 @@
-﻿namespace Wedding.App.Components.Pages;
+﻿namespace WeddingApp.Components.Pages;
 
 public partial class Gallery
 {

@@ -1,4 +1,4 @@
-﻿namespace Wedding.App.Components.Pages.ManageGuests;
+﻿namespace WeddingApp.Components.Pages.ManageGuests;
 
 public class Guest
 {
