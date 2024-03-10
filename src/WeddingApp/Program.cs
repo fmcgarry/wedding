@@ -4,7 +4,8 @@ using WeddingApp.Components;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddHttpClient<IWeddingApiClient, WeddingApiClient>();
+
+builder.Services.AddWeddingApiClient(builder.Configuration);
 
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();

@@ -1,5 +1,7 @@
 ﻿@page "/manage-guests"
+
 @using Microsoft.AspNetCore.Components.QuickGrid;
+@using WeddingApp.Clients.WeddingApi.Models;
 
 <PageTitle>Manage Guests</PageTitle>
 <div class="container">
@@ -8,48 +10,59 @@
             <h3>Manage Guests</h3>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <span class="badge text-bg-secondary">Invited: 15</span>
-            <span class="badge text-bg-secondary">Attending: 5</span>
-            <span class="badge text-bg-secondary">Declined: 3</span>
-            <span class="badge text-bg-secondary">Pending: 7</span>
-            <span class="badge text-bg-secondary">Meatloaf: 2</span>
-            <span class="badge text-bg-secondary">Chicken: 3</span>
+    @if (_guests is null)
+    {
+        <div class="d-flex h-100 justify-content-center align-items-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
         </div>
-        <div class="col">
-            <button class="btn btn-primary float-end" @onclick="AddGuest">Add Guest <span class="bi bi-plus" aria-hidden="true"></span></button>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col">
+                <span class="badge text-bg-secondary">Invited: 15</span>
+                <span class="badge text-bg-secondary">Attending: 5</span>
+                <span class="badge text-bg-secondary">Declined: 3</span>
+                <span class="badge text-bg-secondary">Pending: 7</span>
+                <span class="badge text-bg-secondary">Meatloaf: 2</span>
+                <span class="badge text-bg-secondary">Chicken: 3</span>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary float-end" @onclick="AddGuest">Add Guest <span class="bi bi-plus" aria-hidden="true"></span></button>
+            </div>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col">
-            <QuickGrid Class="table table-striped" Items="@_guests" Pagination="_guestsTablePagination">
-                <PropertyColumn Class="align-middle" Property="@(g => g.Name)" Sortable="true" Title="Name"/>
-                <TemplateColumn Class="align-middle" Sortable="true" Title="RSVP">
-                    @if (context.Rsvp == Guest.RsvpState.Pending)
-                    {
-                        <span class="badge rounded-pill text-bg-warning">Pending</span>
-                    }
-                    else if (context.Rsvp == Guest.RsvpState.Attending)
-                    {
-                        <span class="badge rounded-pill text-bg-success">Attending</span>
-                    }
-                    else if (context.Rsvp == Guest.RsvpState.Declined)
-                    {
-                        <span class="badge rounded-pill text-bg-danger">Declined</span>
-                    }
-                </TemplateColumn>
-                <PropertyColumn Class="align-middle" Property="@(g => g.InvitedBy)" Title="Invited by"/>
-                <PropertyColumn Class="align-middle" Property="@(g => g.Address)" Title="Address"/>
-                <PropertyColumn Class="align-middle" Property="@(g => g.Phone)" Title="Phone"/>
-                <PropertyColumn Class="align-middle" Property="@(g => g.Dinner)" Title="Dinner"/>
-                <TemplateColumn Class="column-fit" Title="Action" Align="Align.Center">
-                    <div class="d-flex my-1">
-                        <button class="btn btn-sm btn-warning text-nowrap" @onclick="@(() => EditGuest(context))">Edit <span class="bi bi-pencil-square" aria-hidden="true"></span></button>
-                        <button class="btn btn-sm btn-danger ms-2 float-end text-nowrap" @onclick="@(() => DeleteGuest(context))">Delete <span class="bi bi-trash3" aria-hidden="true"></span></button>
-                    </div>
-                </TemplateColumn>
-            </QuickGrid>
+        <div class="row mt-4">
+            <div class="col">
+                <QuickGrid Class="table table-striped" Items="@_guests" Pagination="_guestsTablePagination">
+                    <PropertyColumn Class="align-middle" Property="@(g => g.Name)" Sortable="true" Title="Name" />
+                    <TemplateColumn Class="align-middle" Sortable="true" Title="RSVP">
+                        @if (context.Rsvp == Guest.RsvpState.Pending)
+                        {
+                            <span class="badge rounded-pill text-bg-warning">Pending</span>
+                        }
+                        else if (context.Rsvp == Guest.RsvpState.Attending)
+                        {
+                            <span class="badge rounded-pill text-bg-success">Attending</span>
+                        }
+                        else if (context.Rsvp == Guest.RsvpState.Declined)
+                        {
+                            <span class="badge rounded-pill text-bg-danger">Declined</span>
+                        }
+                    </TemplateColumn>
+                    <PropertyColumn Class="align-middle" Property="@(g => g.InvitedBy)" Title="Invited by" />
+                    <PropertyColumn Class="align-middle" Property="@(g => g.Address)" Title="Address" />
+                    <PropertyColumn Class="align-middle" Property="@(g => g.Phone)" Title="Phone" />
+                    <PropertyColumn Class="align-middle" Property="@(g => g.Dinner)" Title="Dinner" />
+                    <TemplateColumn Class="column-fit" Title="Action" Align="Align.Center">
+                        <div class="d-flex my-1">
+                            <button class="btn btn-sm btn-warning text-nowrap" @onclick="@(() => EditGuest(context))">Edit <span class="bi bi-pencil-square" aria-hidden="true"></span></button>
+                            <button class="btn btn-sm btn-danger ms-2 float-end text-nowrap" @onclick="@(() => DeleteGuest(context))">Delete <span class="bi bi-trash3" aria-hidden="true"></span></button>
+                        </div>
+                    </TemplateColumn>
+                </QuickGrid>
+            </div>
         </div>
-    </div>
+    }
 </div>

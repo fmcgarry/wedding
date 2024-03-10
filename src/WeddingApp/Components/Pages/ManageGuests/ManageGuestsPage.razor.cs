@@ -1,14 +1,20 @@
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.QuickGrid;
 using Microsoft.AspNetCore.Components.Web;
+using WeddingApp.Clients.WeddingApi;
+using WeddingApp.Clients.WeddingApi.Models;
 
 namespace WeddingApp.Components.Pages.ManageGuests;
 
 public partial class ManageGuestsPage
 {
-    private IQueryable<Guest>? _guests;
     private readonly PaginationState _guestsTablePagination = new() { ItemsPerPage = 10 };
+    private IQueryable<Guest>? _guests;
 
-    protected override void OnInitialized()
+    [Inject]
+    public required IWeddingApiClient WeddingApiClient { get; init; }
+
+    protected override async Task OnInitializedAsync()
     {
         var list = new List<Guest>()
         {
@@ -22,10 +28,12 @@ public partial class ManageGuestsPage
             new() { Name = "Ramen Namuri" },
         };
 
-        _guests = list.AsQueryable();
+        var guests = await WeddingApiClient.GetAllGuestsAsync();
+
+        _guests = guests?.AsQueryable();
     }
 
-    private void EditGuest(Guest guest)
+    private void AddGuest(MouseEventArgs e)
     {
     }
 
@@ -33,7 +41,7 @@ public partial class ManageGuestsPage
     {
     }
 
-    private void AddGuest(MouseEventArgs e)
+    private void EditGuest(Guest guest)
     {
     }
 }

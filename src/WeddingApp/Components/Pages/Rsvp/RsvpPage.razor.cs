@@ -7,26 +7,24 @@ namespace WeddingApp.Components.Pages.Rsvp;
 
 public partial class RsvpPage
 {
+    private readonly List<string> _states = ["PA", "NC"];
+    private EditContext? _addressFormEditContext;
     private bool? _isAttending = null;
 
     private bool _isFirstPage = true;
-
-    private readonly List<string> _states = ["PA", "NC"];
-
-    private EditContext? _addressFormEditContext;
     private EditContext? _rsvpFormEditContext;
+
+    [SupplyParameterFromForm(FormName = "AddressForm")]
+    private AddressModel Address { get; set; } = new();
 
     [Inject]
     private ILogger<RsvpPage> Logger { get; init; } = default!;
 
-    [Inject]
-    private IWeddingApiClient WeddingApiClient { get; init; } = default!;
-
     [SupplyParameterFromForm(FormName = "RsvpForm")]
     private RsvpModel Rsvp { get; set; } = new();
 
-    [SupplyParameterFromForm(FormName = "AddressForm")]
-    private AddressModel Address { get; set; } = new();
+    [Inject]
+    private IWeddingApiClient WeddingApiClient { get; init; } = default!;
 
     protected override void OnInitialized()
     {
@@ -39,7 +37,6 @@ public partial class RsvpPage
     private async Task Submit()
     {
         Logger.LogDebug("Submit button pressed");
-        await WeddingApiClient.SendRsvpAsync(Rsvp);
     }
 
     private void SubmitAddress()
