@@ -2,18 +2,18 @@
 
 public class Client(HttpClient _httpClient)
 {
-    protected async Task SendRequest(IClientRequest request, CancellationToken cancellationToken = default)
+    protected async Task SendRequest(ClientRequest request, CancellationToken cancellationToken = default)
     {
         await SendHttpClientRequest(request, cancellationToken);
     }
 
-    protected async Task<T?> SendRequest<T>(IClientRequest request, CancellationToken cancellationToken = default)
+    protected async Task<T?> SendRequest<T>(ClientRequest request, CancellationToken cancellationToken = default)
     {
         var response = await SendHttpClientRequest(request, cancellationToken);
         return await response.Content.ReadFromJsonAsync<T>(cancellationToken);
     }
 
-    private async Task<HttpResponseMessage> SendHttpClientRequest(IClientRequest request, CancellationToken cancellationToken)
+    private async Task<HttpResponseMessage> SendHttpClientRequest(ClientRequest request, CancellationToken cancellationToken)
     {
         if (!request.IsValid())
         {

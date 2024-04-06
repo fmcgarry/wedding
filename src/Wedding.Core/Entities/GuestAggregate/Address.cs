@@ -6,5 +6,4 @@ public class Address
     public string? City { get; set; }
     public StateTerritory? State { get; set; }
     public string? Zip { get; set; }
-    public string? Phone { get; set; }
 }

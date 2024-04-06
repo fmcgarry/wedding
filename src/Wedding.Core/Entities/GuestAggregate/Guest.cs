@@ -12,6 +12,7 @@ public class Guest : IEntity
     public DateTime? RsvpDate { get; set; }
     public FoodChoice? DinnerSelection { get; set; }
     public Guid? InvitedBy { get; set; }
+    public string? Phone { get; set; }
 
     public void SetAttending(FoodChoice foodChoice)
     {

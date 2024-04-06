@@ -11,7 +11,12 @@ public class WeddingApiClient(ILogger<WeddingApiClient> _logger, HttpClient http
         {
             _logger.LogTrace("Adding new guest");
 
-            var request = new AddGuestRequest(guest);
+            var request = new AddGuestRequest()
+            {
+                Email = "",
+                Name = guest.Name,
+            };
+
             await SendRequest(request);
 
             return true;
