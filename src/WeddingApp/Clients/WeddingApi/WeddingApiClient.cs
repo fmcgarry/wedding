@@ -5,7 +5,7 @@ namespace WeddingApp.Clients.WeddingApi;
 
 public class WeddingApiClient(ILogger<WeddingApiClient> _logger, HttpClient httpClient) : Client(httpClient), IWeddingApiClient
 {
-    public async Task<bool> AddGuestAsync(Guest guest)
+    public async Task<ClientResult> AddGuestAsync(Guest guest)
     {
         try
         {
@@ -19,16 +19,16 @@ public class WeddingApiClient(ILogger<WeddingApiClient> _logger, HttpClient http
 
             await SendRequest(request);
 
-            return true;
+            return ClientResult.Success();
         }
         catch (Exception e)
         {
             _logger.LogError("Failed to add guest: {e}", e);
-            return false;
+            return ClientResult.Failure("Failed to add guest.");
         }
     }
 
-    public async Task<IEnumerable<Guest>?> GetAllGuestsAsync()
+    public async Task<ClientResult<IEnumerable<Guest>>> GetAllGuestsAsync()
     {
         try
         {
@@ -37,12 +37,17 @@ public class WeddingApiClient(ILogger<WeddingApiClient> _logger, HttpClient http
             var request = new GetAllGuestsRequest();
             var guests = await SendRequest<IEnumerable<Guest>>(request);
 
-            return guests ?? [];
+            if (guests is null)
+            {
+                return ClientResult.Failure<IEnumerable<Guest>>("No guests were found.");
+            }
+
+            return ClientResult.Success(guests);
         }
         catch (Exception e)
         {
             _logger.LogError("Failed to get all guests: {e}", e);
-            return null;
+            return ClientResult.Failure<IEnumerable<Guest>>("An unexpected error occurred while fetching all guests.");
         }
     }
 }
