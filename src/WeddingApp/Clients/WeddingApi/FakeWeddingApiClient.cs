@@ -28,7 +28,7 @@ public class FakeWeddingApiClient : IWeddingApiClient
     {
         var dummyGuests = new Faker<Guest>("en_US")
             .RuleFor(g => g.Address, (f, u) => f.Address.FullAddress())
-            .RuleFor(g => g.Dinner, (f, u) => f.PickRandom<DinnerSelection>().ToString())
+            .RuleFor(g => g.Dinner, (f, u) => f.PickRandom(DinnerSelection.Meatloaf, DinnerSelection.Chicken).ToString())
             .RuleFor(g => g.InvitedBy, (f, u) => f.Name.FullName())
             .RuleFor(g => g.Name, (f, u) => f.Name.FullName())
             .RuleFor(g => g.Phone, (f, u) => f.Phone.PhoneNumber("###-###-####"))

@@ -4,7 +4,7 @@ public class Guest
 {
     public enum RsvpState
     {
-        Pending,
+        Requested,
         Attending,
         Declined
     }

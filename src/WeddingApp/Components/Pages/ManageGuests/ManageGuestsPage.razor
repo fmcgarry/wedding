@@ -22,12 +22,11 @@
     {
         <div class="row">
             <div class="col">
-                <span class="badge text-bg-secondary">Invited: 15</span>
-                <span class="badge text-bg-secondary">Attending: 5</span>
-                <span class="badge text-bg-secondary">Declined: 3</span>
-                <span class="badge text-bg-secondary">Pending: 7</span>
-                <span class="badge text-bg-secondary">Meatloaf: 2</span>
-                <span class="badge text-bg-secondary">Chicken: 3</span>
+                <span class="badge text-bg-warning">Requested: @(_guests.Count(g => g.Rsvp == Guest.RsvpState.Requested))</span>
+                <span class="badge text-bg-success">Attending: @(_guests.Count(g => g.Rsvp == Guest.RsvpState.Attending))</span>
+                <span class="badge text-bg-danger">Declined: @(_guests.Count(g => g.Rsvp == Guest.RsvpState.Declined))</span>
+                <span class="badge text-bg-secondary">Meatloaf: @(_guests.Count(g => g.Dinner == "Meatloaf"))</span>
+                <span class="badge text-bg-secondary">Chicken: @(_guests.Count(g => g.Dinner == "Chicken"))</span>
             </div>
             <div class="col">
                 <button class="btn btn-primary float-end" @onclick="AddGuest">Add Guest <span class="bi bi-plus" aria-hidden="true"></span></button>
@@ -36,11 +35,11 @@
         <div class="row mt-4">
             <div class="col">
                 <QuickGrid Class="table table-striped" Items="@_guests" Pagination="_guestsTablePagination">
-                    <PropertyColumn Class="align-middle" Property="@(g => g.Name)" Sortable="true" Title="Name" />
+                    <PropertyColumn Class="align-middle" Property="@(g => g.Name)" Sortable="true" IsDefaultSortColumn="true" Title="Name" />
                     <TemplateColumn Class="align-middle" Sortable="true" Title="RSVP">
-                        @if (context.Rsvp == Guest.RsvpState.Pending)
+                        @if (context.Rsvp == Guest.RsvpState.Requested)
                         {
-                            <span class="badge rounded-pill text-bg-warning">Pending</span>
+                            <span class="badge rounded-pill text-bg-warning">Requested</span>
                         }
                         else if (context.Rsvp == Guest.RsvpState.Attending)
                         {
