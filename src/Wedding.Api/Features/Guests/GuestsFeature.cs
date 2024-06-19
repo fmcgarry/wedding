@@ -24,11 +24,11 @@ public class GuestsFeature : IFeature
         group.MapPost(AddGuestEndpoint.Route, AddGuestEndpoint.Handler)
             .WithMetadata(new SwaggerOperationAttribute(AddGuestEndpoint.Description));
 
-        group.MapPut(UpdateGuestEndpoint.Route, UpdateGuestEndpoint.Handler)
-            .WithMetadata(new SwaggerOperationAttribute(UpdateGuestEndpoint.Description));
-
         group.MapGet(GetGuestEndpoint.Route, GetGuestEndpoint.Handler)
             .WithMetadata(new SwaggerOperationAttribute(GetGuestEndpoint.Description));
+
+        group.MapPut(UpdateGuestEndpoint.Route, UpdateGuestEndpoint.Handler)
+            .WithMetadata(new SwaggerOperationAttribute(UpdateGuestEndpoint.Description));
 
         group.MapDelete(DeleteGuestEndpoint.Route, DeleteGuestEndpoint.Handler)
             .WithMetadata(new SwaggerOperationAttribute(DeleteGuestEndpoint.Description));

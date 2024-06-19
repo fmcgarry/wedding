@@ -17,11 +17,11 @@ public class SongRequests : IFeature
     {
         var group = endpoints.MapGroup("/songrequests").WithTags("Song Requests");
 
+        group.MapGet("/", GetAllSongRequests)
+            .WithMetadata(new SwaggerOperationAttribute("Lists all song requests"));
+
         group.MapPost("/", AddSongRequest)
             .WithMetadata(new SwaggerOperationAttribute("Add a new song request"));
-
-        group.MapGet("/", GetAllSongRequests)
-            .WithMetadata(new SwaggerOperationAttribute("Gets all song requests"));
 
         group.MapGet("/{id:Guid}", GetSongRequest)
             .WithMetadata(new SwaggerOperationAttribute("Get a specific song request"));
