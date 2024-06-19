@@ -1,6 +1,12 @@
 # Overview
 
-This repository contains the code for my Wedding website. It follows Clean Architecture and implements the CQRS pattern.
+This repository contains the code for my Wedding website. It tries to follow Clean Architecture and utilizes Mediatr to implement the CQRS pattern. 
+This code is meant to be exploratory example/demo code, so consistency has been ignored in favor of experimentation. 
+
+The Wedding.Api project is a .NET Minimal API that utilizes a custom Feature registering pattern. Classes which implement the `IFeature` interface
+are discovered and registered to the Service Collection automatically during startup through the _FeatureExtensions.RegisterFeatures_ `IServiceCollection`
+extension method. The _FeatureExtensions.MapFeatureEndpoints_ `WebApplication` extension method is used to register all Minimal API endpoints in the
+feature by calling _IFeature.MapEndpoints_.
 
 # Setup
 
