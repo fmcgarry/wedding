@@ -11,6 +11,7 @@ namespace Wedding.Api.Features.Guests;
 
 /// <summary>
 /// This feature demonstrates splitting out endpoint handlers into separate static classes.
+/// Useful if your endpoints require specific DTOs.
 /// </summary>
 public class GuestsFeature : IFeature
 {
