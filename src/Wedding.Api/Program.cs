@@ -9,6 +9,8 @@ builder.Services.AddSwaggerGen(config => config.EnableAnnotations());
 
 // Uses FeatureExtensions.cs
 builder.Services.RegisterFeatures(builder.Configuration);
+
+// Register Clean Architecture services
 builder.Services.AddUseCasesServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
