@@ -5,6 +5,9 @@ using Wedding.UseCases.Photos.Queries;
 
 namespace Wedding.Api.Features;
 
+/// <summary>
+/// This feature demonstrates inlining endpoint handlers.
+/// </summary>
 public class Photos : IFeature
 {
     public void MapEndpoints(IEndpointRouteBuilder endpoints)
@@ -12,10 +15,9 @@ public class Photos : IFeature
         var group = endpoints.MapGroup("/photos").WithTags("Photos");
 
         group.MapGet("/", async ([FromServices] IMediator mediator) =>
-            {
-                var results = await mediator.Send(new ListPhotosQuery());
-                return TypedResults.Ok(results);
-            })
-            .WithMetadata(new SwaggerOperationAttribute("Gets all photos"));
+        {
+            var results = await mediator.Send(new ListPhotosQuery());
+            return TypedResults.Ok(results);
+        }).WithMetadata(new SwaggerOperationAttribute("Gets all photos"));
     }
 }

@@ -8,7 +8,7 @@ public class Guest : IEntity
     public required string Name { get; set; }
     public string? Email { get; set; }
     public Address? Address { get; set; }
-    public bool IsAttending { get; set; }
+    public bool IsAttending { get; private set; }
     public DateTime? RsvpDate { get; set; }
     public FoodChoice? DinnerSelection { get; set; }
     public Guid? InvitedBy { get; set; }
