@@ -13,6 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.UseCases", "src\Wed
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeddingApp", "src\WeddingApp\WeddingApp.csproj", "{3885F46C-062A-427E-BA50-F8F7135187AB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{112D4A91-4434-4E57-B064-FB67037FCAEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{55860042-C59E-4266-A7CE-A646CCE962FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{F5235E2E-8A11-40CE-AC39-CA741C714836}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +51,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A9E00FFE-5A7C-4EA0-B94C-25C764139458} = {112D4A91-4434-4E57-B064-FB67037FCAEB}
+		{A096014E-808C-43CD-9AA9-5F94D337A3BE} = {112D4A91-4434-4E57-B064-FB67037FCAEB}
+		{95BADFAA-DC07-4142-8483-F8131345B600} = {112D4A91-4434-4E57-B064-FB67037FCAEB}
+		{154FBAF8-8DDD-46F3-B13D-8E5135B32CFF} = {112D4A91-4434-4E57-B064-FB67037FCAEB}
+		{3885F46C-062A-427E-BA50-F8F7135187AB} = {112D4A91-4434-4E57-B064-FB67037FCAEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A366E183-16EE-47C7-9A44-EAE747316DFE}
