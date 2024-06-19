@@ -8,7 +8,7 @@ namespace Wedding.Api.Features.Guests.Add;
 public static class AddGuestEndpoint
 {
     public const string Route = "/";
-    public const string Description = "Adds a new guest";
+    public const string Description = "Add a new guest";
 
     public static async Task<Created<AddGuestCommand>> Handler([FromBody] AddGuestCommand command, [FromServices] IMediator mediator)
     {
