@@ -13,7 +13,9 @@ public class GetGuestHandler(ILogger<GetGuestHandler> _logger, IApplicationDbCon
 {
     public async Task<GuestResponseModel> Handle(GetGuestbyIdQuery request, CancellationToken cancellationToken)
     {
-        var guest = await _dbContext.Guests.FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
+        var guest = await _dbContext.Guests
+            .Include(guest => guest.Address)
+            .FirstOrDefaultAsync(x => x.Id == request.Id, cancellationToken);
 
         if (guest is null)
         {

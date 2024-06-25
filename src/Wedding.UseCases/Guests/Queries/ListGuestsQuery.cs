@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.EntityFrameworkCore;
 using Wedding.Core.Entities.GuestAggregate;
 using Wedding.Core.Interfaces;
 
@@ -11,7 +12,7 @@ public class ListGuestsHandler(IApplicationDbContext _dbContext, IEntityModelMap
 {
     public Task<IEnumerable<GuestResponseModel>> Handle(ListGuestsQuery request, CancellationToken cancellationToken)
     {
-        var guests = _mapper.MapModelsFromRange(_dbContext.Guests);
+        var guests = _mapper.MapModelsFromRange(_dbContext.Guests.Include(guest => guest.Address));
 
         return Task.FromResult(guests);
     }

@@ -11,7 +11,10 @@ public class ListAccompanyingGuestsHandler(IApplicationDbContext _dbContext, IEn
 {
     public async Task<IEnumerable<GuestResponseModel>> Handle(ListAccompanyingGuestsQuery request, CancellationToken cancellationToken)
     {
-        var guests = await _dbContext.Guests.Where(guest => guest.InvitedBy.Equals(request.Id)).ToListAsync(cancellationToken);
+        var guests = await _dbContext.Guests
+            .Include(guest => guest.Address)
+            .Where(guest => guest.InvitedBy.Equals(request.Id))
+            .ToListAsync(cancellationToken);
 
         var response = _mapper.MapModelsFromRange(guests);
 
