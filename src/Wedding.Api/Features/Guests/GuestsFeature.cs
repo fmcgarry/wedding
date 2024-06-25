@@ -4,7 +4,6 @@ using Wedding.Api.Features.Guests.Add;
 using Wedding.Api.Features.Guests.Delete;
 using Wedding.Api.Features.Guests.Get;
 using Wedding.Api.Features.Guests.GetAll;
-using Wedding.Api.Features.Guests.Rsvp;
 using Wedding.Api.Features.Guests.Update;
 
 namespace Wedding.Api.Features.Guests;
@@ -33,9 +32,6 @@ public class GuestsFeature : IFeature
 
         group.MapDelete(DeleteGuestEndpoint.Route, DeleteGuestEndpoint.Handler)
             .WithMetadata(new SwaggerOperationAttribute(DeleteGuestEndpoint.Description));
-
-        group.MapPost(RsvpEndpoint.Route, RsvpEndpoint.Handler)
-            .WithMetadata(new SwaggerOperationAttribute(RsvpEndpoint.Description));
 
         group.MapGet(AccompanyingEndpoint.Route, AccompanyingEndpoint.Handler)
             .WithMetadata(new SwaggerOperationAttribute(AccompanyingEndpoint.Description));
