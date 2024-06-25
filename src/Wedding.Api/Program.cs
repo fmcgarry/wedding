@@ -1,5 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using Wedding.Api;
 using Wedding.Infrastructure;
+using Wedding.Infrastructure.Data;
 using Wedding.UseCases;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +23,16 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+
+    if (!builder.Configuration.GetValue<bool>("UseInMemoryDb"))
+    {
+        // Apply db migrations automatically for developers
+        using (IServiceScope scope = app.Services.CreateScope())
+        {
+            ApplicationDbContext context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            context.Database.Migrate();
+        }
+    }
 }
 
 app.UseHttpsRedirection();

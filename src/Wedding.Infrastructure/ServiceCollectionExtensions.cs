@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Wedding.Core.Interfaces;
 using Wedding.Infrastructure.Data;
 using Wedding.Infrastructure.Photos;
 using Wedding.UseCases;
@@ -25,7 +24,7 @@ public static class ServiceCollectionExtensions
             }
         });
 
-        services.AddScoped<IPhotoClient, PhotoClient>();
+        services.AddPhotoClient(configuration.GetSection(PhotoClientOptions.PhotoClient));
 
         return services;
     }

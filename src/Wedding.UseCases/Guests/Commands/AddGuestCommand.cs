@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using System.ComponentModel.DataAnnotations;
 using Wedding.Core.Entities.GuestAggregate;
+using Wedding.Core.Exceptions;
 
 namespace Wedding.UseCases.Guests.Commands;
 
@@ -38,7 +39,7 @@ public class AddGuestHandler(IApplicationDbContext _dbContext) : IRequestHandler
         bool isDuplicateGuest = _dbContext.Guests.Any(x => x.Email == request.Email);
         if (isDuplicateGuest)
         {
-            throw new InvalidOperationException($"Multiple guests with the email '{request.Email}' were found.");
+            throw new InvalidGuestDataException($"Multiple guests with the email '{request.Email}' were found.");
         }
 
         if (request.InvitedBy is not null)
@@ -46,7 +47,7 @@ public class AddGuestHandler(IApplicationDbContext _dbContext) : IRequestHandler
             bool isInvitedByAttendingGuest = _dbContext.Guests.Where(x => x.IsAttending).Any(x => x.Id == request.InvitedBy);
             if (!isInvitedByAttendingGuest)
             {
-                throw new InvalidOperationException("Guest was not invited by an attending guest.");
+                throw new InvalidGuestDataException("Guest was not invited by an attending guest.");
             }
         }
 
@@ -56,13 +57,14 @@ public class AddGuestHandler(IApplicationDbContext _dbContext) : IRequestHandler
             Name = request.Name,
             Email = request.Email,
             Phone = request.Phone,
-            Address = new Address()
+            InvitedBy = request.InvitedBy,
+            Address = new()
             {
                 Id = Guid.NewGuid(),
                 City = request.City,
-                Line1 = request.AddressLine1
-            },
-            InvitedBy = request.InvitedBy
+                Line1 = request.AddressLine1,
+                Zip = request.Zip
+            }
         };
 
         if (request.State is not null)
@@ -74,7 +76,7 @@ public class AddGuestHandler(IApplicationDbContext _dbContext) : IRequestHandler
         {
             if (request.Dinner is null)
             {
-                throw new InvalidOperationException("Guest needs a dinner set if attending.");
+                throw new InvalidGuestDataException("Guest needs a dinner value set if attending is true.");
             }
 
             var dinner = Enum.Parse<FoodChoice>(request.Dinner);

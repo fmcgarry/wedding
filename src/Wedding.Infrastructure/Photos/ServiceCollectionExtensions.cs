@@ -4,9 +4,9 @@ using Wedding.Core.Interfaces;
 
 namespace Wedding.Infrastructure.Photos;
 
-public static class ServiceCollectionExtensions
+internal static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddPhotoClient(this IServiceCollection services, IConfiguration namedConfigurationSection)
+    internal static IServiceCollection AddPhotoClient(this IServiceCollection services, IConfiguration namedConfigurationSection)
     {
         services.Configure<PhotoClientOptions>(namedConfigurationSection);
         services.AddTransient<IPhotoClient, PhotoClient>();
