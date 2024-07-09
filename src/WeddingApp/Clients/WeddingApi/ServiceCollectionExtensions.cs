@@ -6,7 +6,7 @@ public static class ServiceCollectionExtensions
     {
         services.AddHttpClient<IWeddingApiClient, WeddingApiClient>(options =>
         {
-            string baseAddress = configuration["WeddingApiClient:BaseAddress"]!;
+            string baseAddress = configuration["WeddingApiClient:BaseAddress"] ?? throw new InvalidOperationException("WeddingApiClient BaseAddress is not set");
             options.BaseAddress = new Uri(baseAddress);
         });
 

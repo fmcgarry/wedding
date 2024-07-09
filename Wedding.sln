@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{F5235E2E-8
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wedding.AppHost", "src\Wedding.AppHost\Wedding.AppHost.csproj", "{B0A3F4D9-C878-4882-9D34-84B5B9F84135}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wedding.ServiceDefaults", "src\Wedding.ServiceDefaults\Wedding.ServiceDefaults.csproj", "{04D59D4E-BEA5-4143-B3F4-1226390CA518}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,14 @@ Global
 		{3885F46C-062A-427E-BA50-F8F7135187AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3885F46C-062A-427E-BA50-F8F7135187AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3885F46C-062A-427E-BA50-F8F7135187AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0A3F4D9-C878-4882-9D34-84B5B9F84135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0A3F4D9-C878-4882-9D34-84B5B9F84135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0A3F4D9-C878-4882-9D34-84B5B9F84135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0A3F4D9-C878-4882-9D34-84B5B9F84135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04D59D4E-BEA5-4143-B3F4-1226390CA518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D59D4E-BEA5-4143-B3F4-1226390CA518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D59D4E-BEA5-4143-B3F4-1226390CA518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D59D4E-BEA5-4143-B3F4-1226390CA518}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

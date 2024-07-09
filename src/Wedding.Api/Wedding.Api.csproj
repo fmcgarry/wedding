@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Wedding.Infrastructure\Wedding.Infrastructure.csproj" />
+    <ProjectReference Include="..\Wedding.ServiceDefaults\Wedding.ServiceDefaults.csproj" />
     <ProjectReference Include="..\Wedding.UseCases\Wedding.UseCases.csproj" />
   </ItemGroup>
 
