@@ -7,11 +7,11 @@ using Wedding.Core.Interfaces;
 
 namespace Wedding.UseCases.Guests.Queries;
 
-public record GetGuestbyIdQuery(Guid Id) : IRequest<GuestResponseModel>;
+public record GetGuestbyIdQuery(Guid Id) : IRequest<GuestModel>;
 
-public class GetGuestHandler(ILogger<GetGuestHandler> _logger, IApplicationDbContext _dbContext, IEntityModelMapper<Guest, GuestResponseModel> _mapper) : IRequestHandler<GetGuestbyIdQuery, GuestResponseModel>
+public class GetGuestHandler(ILogger<GetGuestHandler> _logger, IApplicationDbContext _dbContext, IEntityModelMapper<Guest, GuestModel> _mapper) : IRequestHandler<GetGuestbyIdQuery, GuestModel>
 {
-    public async Task<GuestResponseModel> Handle(GetGuestbyIdQuery request, CancellationToken cancellationToken)
+    public async Task<GuestModel> Handle(GetGuestbyIdQuery request, CancellationToken cancellationToken)
     {
         var guest = await _dbContext.Guests
             .Include(guest => guest.Address)

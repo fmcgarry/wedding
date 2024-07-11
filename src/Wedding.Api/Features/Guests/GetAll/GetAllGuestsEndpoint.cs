@@ -11,7 +11,7 @@ public static class GetAllGuestsEndpoint
     public const string Route = "/";
     public const string Description = "Lists all guests";
 
-    public static async Task<Ok<IEnumerable<GuestResponseModel>>> Handler([FromServices] IMediator mediator)
+    public static async Task<Ok<IEnumerable<GuestModel>>> Handler([FromServices] IMediator mediator)
     {
         var results = await mediator.Send(new ListGuestsQuery());
         return TypedResults.Ok(results);

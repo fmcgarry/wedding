@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using WeddingApp.Clients.WeddingApi;
+using WeddingApp.Clients.WeddingApi.Models;
 using WeddingApp.Components.Forms;
 
 namespace WeddingApp.Components.Pages.Rsvp;
 
 public partial class RsvpPage
 {
-    private readonly List<string> _states = ["PA", "NC"];
     private EditContext? _addressFormEditContext;
     private bool? _isAttending = null;
-
     private bool _isFirstPage = true;
     private EditContext? _rsvpFormEditContext;
 
@@ -37,6 +36,17 @@ public partial class RsvpPage
     private async Task Submit()
     {
         Logger.LogDebug("Submit button pressed");
+
+        var guest = new Guest()
+        {
+            Name = Address.Name,
+            Address = Address.Address,
+            Dinner = Rsvp.DinnerSelection.ToString(),
+            Phone = Address.Phone,
+            Rsvp = Guest.RsvpState.Attending
+        };
+
+        await WeddingApiClient.AddGuestAsync(guest);
     }
 
     private void SubmitAddress()

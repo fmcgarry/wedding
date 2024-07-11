@@ -5,12 +5,12 @@ using Wedding.Core.Interfaces;
 
 namespace Wedding.UseCases.Guests.Queries;
 
-public record ListAttendingGuestsQuery : IRequest<IEnumerable<GuestResponseModel>>;
+public record ListAttendingGuestsQuery : IRequest<IEnumerable<GuestModel>>;
 
-public class ListAttendingGuestsHandler(IApplicationDbContext _dbContext, IEntityModelMapper<Guest, GuestResponseModel> _mapper)
-    : IRequestHandler<ListAttendingGuestsQuery, IEnumerable<GuestResponseModel>>
+public class ListAttendingGuestsHandler(IApplicationDbContext _dbContext, IEntityModelMapper<Guest, GuestModel> _mapper)
+    : IRequestHandler<ListAttendingGuestsQuery, IEnumerable<GuestModel>>
 {
-    public Task<IEnumerable<GuestResponseModel>> Handle(ListAttendingGuestsQuery request, CancellationToken cancellationToken)
+    public Task<IEnumerable<GuestModel>> Handle(ListAttendingGuestsQuery request, CancellationToken cancellationToken)
     {
         var attendingGuests = _dbContext.Guests
             .Include(guest => guest.Address)

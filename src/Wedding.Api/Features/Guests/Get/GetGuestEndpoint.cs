@@ -12,7 +12,7 @@ public static class GetGuestEndpoint
     public const string Route = "/{id:guid}";
     public const string Description = "Gets a specific guest";
 
-    public static async Task<Results<Ok<GuestResponseModel>, NotFound>> Handler(Guid id, [FromServices] IMediator mediator)
+    public static async Task<Results<Ok<GuestModel>, NotFound>> Handler(Guid id, [FromServices] IMediator mediator)
     {
         try
         {

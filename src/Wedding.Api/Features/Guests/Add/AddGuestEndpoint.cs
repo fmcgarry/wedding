@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Wedding.UseCases.Guests;
 using Wedding.UseCases.Guests.Commands;
 
 namespace Wedding.Api.Features.Guests.Add;
@@ -10,9 +11,9 @@ public static class AddGuestEndpoint
     public const string Route = "/";
     public const string Description = "Add a new guest";
 
-    public static async Task<Created<AddGuestCommand>> Handler([FromBody] AddGuestCommand command, [FromServices] IMediator mediator)
+    public static async Task<Created<GuestModel>> Handler([FromBody] GuestModel guest, [FromServices] IMediator mediator)
     {
-        var response = await mediator.Send(command);
-        return TypedResults.Created($"{response}", command);
+        var response = await mediator.Send(new AddGuestCommand(guest));
+        return TypedResults.Created($"{response}", guest);
     }
 }
