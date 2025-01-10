@@ -39,3 +39,11 @@ dotnet ef migrations add <Name> --project "src\Wedding.Infrastructure\" --startu
 ```
 
 - `Name` is the name of the Migration.
+
+### Architecture
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/21f28400-3ea9-4f5d-b4a6-c4b9610e0b85" alt="Architecture Diagram" /> 
+</p>
+
+I structured the projects using Clean Architecture while incorporating elements of vertical slice architecture for features. This approach organizes all code related to a feature in a single location, even when it spans multiple projects. The Infrastructure project contains external dependencies, such as the database and the client used to interact with the Google Photos API. Dependencies are represented using solid arrows, but at runtime, the API relies solely on the Infrastructure project.
