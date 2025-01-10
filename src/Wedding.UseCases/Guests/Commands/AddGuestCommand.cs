@@ -15,7 +15,7 @@ public class AddGuestHandler(IApplicationDbContext _dbContext) : IRequestHandler
         bool isDuplicateGuest = _dbContext.Guests.Any(x => x.Email == guestModel.Email);
         if (isDuplicateGuest)
         {
-            throw new InvalidGuestDataException($"Multiple guests with the email '{guestModel.Email}' were found.");
+            throw new InvalidGuestDataException($"Multiple guests with the email '{guestModel.Email}' were found. Only one guest per email is permitted.");
         }
 
         if (guestModel.InvitedBy is not null)
@@ -45,17 +45,28 @@ public class AddGuestHandler(IApplicationDbContext _dbContext) : IRequestHandler
 
         if (guestModel.State is not null)
         {
-            guest.Address.State = Enum.Parse<StateTerritory>(guestModel.State, true);
+            bool isValidState = Enum.TryParse(guestModel.State, true, out StateTerritory state);
+            if (!isValidState)
+            {
+                throw new InvalidGuestDataException($"An invalid state '{guestModel.State}' was provided.  Value must be one of: {string.Join("|", Enum.GetValues<StateTerritory>())}");
+            }
+
+            guest.Address.State = state;
         }
 
         if (guestModel.IsAttending == true)
         {
             if (guestModel.Dinner is null)
             {
-                throw new InvalidGuestDataException("Guest needs a dinner value set if attending is true.");
+                throw new InvalidGuestDataException($"Guest needs a valid dinner value set if they are attending. Value must be one of: {string.Join("|", Enum.GetValues<FoodChoice>())}.");
             }
 
-            var dinner = Enum.Parse<FoodChoice>(guestModel.Dinner);
+            var isValidDinner = Enum.TryParse(guestModel.Dinner, true, out FoodChoice dinner);
+            if (!isValidDinner)
+            {
+                throw new InvalidGuestDataException($"An invalid dinner '{guestModel.Dinner}' was provided. Value must be one of: {string.Join("|", Enum.GetValues<FoodChoice>())}.");
+            }
+
             guest.SetAttending(dinner);
         }
 
