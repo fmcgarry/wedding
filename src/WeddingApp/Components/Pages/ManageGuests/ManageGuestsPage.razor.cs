@@ -17,7 +17,7 @@ public partial class ManageGuestsPage
     protected override async Task OnInitializedAsync()
     {
         var guests = await WeddingApiClient.GetAllGuestsAsync();
-        _guests = guests?.AsQueryable();
+        _guests = guests.Value.AsQueryable();
     }
 
     private void AddGuest(MouseEventArgs e)
