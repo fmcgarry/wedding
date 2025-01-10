@@ -6,8 +6,11 @@ using Wedding.UseCases.SongRequests;
 using Wedding.UseCases.SongRequests.Commands;
 using Wedding.UseCases.SongRequests.Queries;
 
-namespace Wedding.Api.SongRequests;
+namespace Wedding.Api.Features;
 
+/// <summary>
+/// This feature demonstrates using private static methods for endpoint handlers.
+/// </summary>
 public class SongRequests : IFeature
 {
     public void MapEndpoints(IEndpointRouteBuilder endpoints)
@@ -15,7 +18,7 @@ public class SongRequests : IFeature
         var group = endpoints.MapGroup("/songrequests").WithTags("Song Requests");
 
         group.MapGet("/", GetAllSongRequests)
-            .WithMetadata(new SwaggerOperationAttribute("Gets all song requests"));
+            .WithMetadata(new SwaggerOperationAttribute("Lists all song requests"));
 
         group.MapPost("/", AddSongRequest)
             .WithMetadata(new SwaggerOperationAttribute("Add a new song request"));
@@ -33,35 +36,28 @@ public class SongRequests : IFeature
     private static async Task<CreatedAtRoute<SongRequestModel>> AddSongRequest([FromBody] SongRequestModel songRequest, [FromServices] IMediator mediator)
     {
         await mediator.Send(new AddSongRequestCommand(songRequest));
-
         return TypedResults.CreatedAtRoute(songRequest, nameof(AddSongRequest));
+    }
+    private static async Task<Ok<IEnumerable<SongRequestModel>>> GetAllSongRequests([FromServices] IMediator mediator)
+    {
+        var songRequests = await mediator.Send(new ListSongRequestsQuery());
+        return TypedResults.Ok(songRequests);
     }
 
     private static async Task<Results<NotFound, Ok<SongRequestModel>>> GetSongRequest([FromRoute] Guid id, [FromServices] IMediator mediator)
     {
         var songRequest = await mediator.Send(new GetSongRequestByIdQuery(id));
-
         return TypedResults.Ok(songRequest);
     }
-
-    private static async Task<Ok<IEnumerable<SongRequestModel>>> GetAllSongRequests([FromServices] IMediator mediator)
+    private static async Task<Results<NotFound, NoContent>> UpdateSongRequest([FromRoute] Guid id, [FromBody] SongRequestModel updatedSongRequest, [FromServices] IMediator mediator)
     {
-        var songRequests = await mediator.Send(new ListSongRequestsQuery());
-
-        return TypedResults.Ok(songRequests);
+        await mediator.Send(new UpdateSongRequestCommand());
+        return TypedResults.NoContent();
     }
 
     private static async Task<Results<NotFound, NoContent>> RemoveSongRequest(Guid id, [FromServices] IMediator mediator)
     {
         await mediator.Send(new RemoveSongRequestCommand(id));
-
-        return TypedResults.NoContent();
-    }
-
-    private static async Task<Results<NotFound, NoContent>> UpdateSongRequest([FromRoute] Guid id, [FromBody] SongRequestModel updatedSongRequest, [FromServices] IMediator mediator)
-    {
-        await mediator.Send(new UpdateSongRequestCommand());
-
         return TypedResults.NoContent();
     }
 }

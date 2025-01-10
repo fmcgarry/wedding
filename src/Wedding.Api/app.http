@@ -1,0 +1,24 @@
+@projectUrl=https://localhost:7008
+
+# Add a new Guest
+POST {{projectUrl}}/guests
+Content-Type: application/json
+{
+  "addressLine1": "1600 Pennsylvania Ave NW",
+  "city": "Washington",
+  "email": "president@usa.com",
+  "name": "Mr. Prez",
+  "phone": "2024561111",
+  "state": "DC",
+  "zip": "20500"
+}
+###
+
+# Get all guests
+GET {{projectUrl}}/guests
+Accept: application/json
+###
+
+# Get a specific guest
+@guestId=7c429e38-8977-48ef-b363-4d371902c6f7
+GET {{projectUrl}}/guests/{{guestId}}

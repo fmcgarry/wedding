@@ -2,20 +2,13 @@
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddWeddingApiClient(this IServiceCollection services, IConfiguration configurationSection)
+    public static IServiceCollection AddWeddingApiClient(this IServiceCollection services, IConfiguration configuration)
     {
-        if (configurationSection.GetValue<bool>("UseFakeClient"))
+        services.AddHttpClient<IWeddingApiClient, WeddingApiClient>(options =>
         {
-            services.AddSingleton<IWeddingApiClient, FakeWeddingApiClient>();
-        }
-        else
-        {
-            services.AddHttpClient<IWeddingApiClient, WeddingApiClient>(options =>
-            {
-                string baseAddress = configurationSection["BaseAddress"]!;
-                options.BaseAddress = new Uri(baseAddress);
-            });
-        }
+            string baseAddress = configuration["WeddingApiClient:BaseAddress"] ?? throw new InvalidOperationException("WeddingApiClient BaseAddress is not set");
+            options.BaseAddress = new Uri(baseAddress);
+        });
 
         return services;
     }

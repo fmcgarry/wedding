@@ -13,7 +13,6 @@ public class WeddingApiClient(ILogger<WeddingApiClient> _logger, HttpClient http
 
             var request = new AddGuestRequest()
             {
-                Email = "",
                 Name = guest.Name,
             };
 

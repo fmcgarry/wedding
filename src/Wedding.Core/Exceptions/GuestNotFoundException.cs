@@ -3,19 +3,23 @@
 [Serializable]
 public class GuestNotFoundException : Exception
 {
-    public GuestNotFoundException()
+    private GuestNotFoundException()
     {
     }
 
-    public GuestNotFoundException(string? message) : base(message)
+    private GuestNotFoundException(string? message) : base(message)
     {
     }
 
-    public GuestNotFoundException(string? message, Exception? innerException) : base(message, innerException)
+    private GuestNotFoundException(string? message, Exception? innerException) : base(message, innerException)
     {
     }
 
     public GuestNotFoundException(Guid id) : this($"Could not find guest with id '{id}'.")
+    {
+    }
+
+    public GuestNotFoundException(Guid id, Exception? innerException) : this($"Could not find guest with id '{id}'.", innerException)
     {
     }
 }
