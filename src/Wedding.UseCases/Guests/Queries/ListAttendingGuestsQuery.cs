@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Wedding.Core.Entities.GuestAggregate;
-using Wedding.Core.Interfaces;
+using Wedding.Core.Common;
+using Wedding.Core.Guests.Entities.GuestAggregate;
 
 namespace Wedding.UseCases.Guests.Queries;
 

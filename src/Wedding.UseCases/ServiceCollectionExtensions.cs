@@ -1,8 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
-using Wedding.Core.Entities;
-using Wedding.Core.Entities.GuestAggregate;
-using Wedding.Core.Interfaces;
+using Wedding.Core.Common;
+using Wedding.Core.Guests.Entities.GuestAggregate;
+using Wedding.Core.Photos;
+using Wedding.Core.SongRequests;
 using Wedding.UseCases.Guests;
 using Wedding.UseCases.Photos;
 using Wedding.UseCases.SongRequests;

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
-using Wedding.Core.Interfaces;
+using Wedding.Core.Photos;
 
 namespace Wedding.UseCases.Photos.Queries;
 

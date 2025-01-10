@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Wedding.Core.Interfaces;
+using Wedding.Core.Photos;
 
 namespace Wedding.Infrastructure.Photos;
 

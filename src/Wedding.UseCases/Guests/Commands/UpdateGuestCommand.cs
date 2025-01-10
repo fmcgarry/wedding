@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.ComponentModel.DataAnnotations;
-using Wedding.Core.Entities.GuestAggregate;
-using Wedding.Core.Exceptions;
-using Wedding.Core.Interfaces;
+using Wedding.Core.Common;
+using Wedding.Core.Guests.Entities.GuestAggregate;
+using Wedding.Core.Guests.Exceptions;
 
 namespace Wedding.UseCases.Guests.Commands;
 

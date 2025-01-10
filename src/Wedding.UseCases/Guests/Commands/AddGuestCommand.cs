@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using Wedding.Core.Entities.GuestAggregate;
-using Wedding.Core.Exceptions;
+using Wedding.Core.Guests.Entities.GuestAggregate;
+using Wedding.Core.Guests.Exceptions;
 
 namespace Wedding.UseCases.Guests.Commands;
 

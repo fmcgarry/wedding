@@ -1,5 +1,5 @@
-﻿using Wedding.Core.Entities;
-using Wedding.Core.Interfaces;
+﻿using Wedding.Core.Common;
+using Wedding.Core.Photos;
 
 namespace Wedding.UseCases.Photos;
 

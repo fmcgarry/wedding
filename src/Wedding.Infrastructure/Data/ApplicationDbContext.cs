@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Wedding.Core.Entities;
-using Wedding.Core.Entities.GuestAggregate;
+using Wedding.Core.Guests.Entities.GuestAggregate;
+using Wedding.Core.Photos;
+using Wedding.Core.SongRequests;
 using Wedding.UseCases;
 
 namespace Wedding.Infrastructure.Data;
