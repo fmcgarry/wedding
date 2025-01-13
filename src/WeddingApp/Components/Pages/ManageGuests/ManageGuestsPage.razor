@@ -29,7 +29,7 @@
                 <span class="badge text-bg-secondary">Chicken: @(_guests.Count(g => g.Dinner == "Chicken"))</span>
             </div>
             <div class="col">
-                <button class="btn btn-primary float-end" @onclick="AddGuest">Add Guest <span class="bi bi-plus" aria-hidden="true"></span></button>
+                <button class="btn btn-primary float-end" @onclick="AddGuest"><span class="bi bi-person-plus-fill me-2" aria-hidden="true"></span>Add Guest</button>
             </div>
         </div>
         <div class="row mt-4">
@@ -54,10 +54,10 @@
                     <PropertyColumn Class="align-middle" Property="@(g => g.Address)" Title="Address" />
                     <PropertyColumn Class="align-middle" Property="@(g => g.Phone)" Title="Phone" />
                     <PropertyColumn Class="align-middle" Property="@(g => g.Dinner)" Title="Dinner" />
-                    <TemplateColumn Class="column-fit" Title="Action" Align="Align.Center">
+                    <TemplateColumn Class="column-fit" Align="Align.Center">
                         <div class="d-flex my-1">
-                            <button class="btn btn-sm btn-warning text-nowrap" @onclick="@(() => EditGuest(context))">Edit <span class="bi bi-pencil-square" aria-hidden="true"></span></button>
-                            <button class="btn btn-sm btn-danger ms-2 float-end text-nowrap" @onclick="@(() => DeleteGuest(context))">Delete <span class="bi bi-trash3" aria-hidden="true"></span></button>
+                            <button class="btn btn-sm btn-warning text-nowrap" title="Edit" @onclick="@(() => EditGuest(context))"><span class="bi bi-pencil-fill" aria-hidden="true"></span></button>
+                            <button class="btn btn-sm btn-danger ms-1 float-end text-nowrap" title="Delete" @onclick="@(() => DeleteGuest(context))"><span class="bi bi-trash3-fill" aria-hidden="true"></span></button>
                         </div>
                     </TemplateColumn>
                 </QuickGrid>
