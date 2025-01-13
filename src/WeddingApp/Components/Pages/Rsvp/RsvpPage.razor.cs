@@ -10,8 +10,8 @@ public partial class RsvpPage
 {
     private EditContext? _addressFormEditContext;
     private bool? _isAttending = null;
-    private bool _isFirstPage = true;
     private EditContext? _rsvpFormEditContext;
+    private Page _currentPage;
 
     [SupplyParameterFromForm(FormName = "AddressForm")]
     private AddressModel Address { get; set; } = new();
@@ -33,9 +33,27 @@ public partial class RsvpPage
         _rsvpFormEditContext.SetFieldCssClassProvider(new BootstrapValidationFieldClassProvider());
     }
 
-    private async Task Submit()
+    private void SubmitAddress()
     {
-        Logger.LogDebug("Submit button pressed");
+        Logger.LogDebug("Submit address button pressed");
+        _currentPage = Page.DinnerDetails;
+    }
+
+    private void SubmitDinnerDetails()
+    {
+        Logger.LogDebug("Submit additional details button pressed");
+        _currentPage = Page.AdditionalGuests;
+    }
+
+    private void SubmitAdditionalGuests()
+    {
+        Logger.LogDebug("Submit additional details button pressed");
+        _currentPage = Page.AdditionalGuests;
+    }
+
+    private async Task SubmitConfirmation()
+    {
+        Logger.LogDebug("Submit confirmation button pressed");
 
         var guest = new Guest()
         {
@@ -49,9 +67,11 @@ public partial class RsvpPage
         await WeddingApiClient.AddGuestAsync(guest);
     }
 
-    private void SubmitAddress()
+    private enum Page
     {
-        Logger.LogDebug("Submit address button pressed");
-        _isFirstPage = false;
+        Address,
+        DinnerDetails,
+        AdditionalGuests,
+        Confirmation
     }
 }
