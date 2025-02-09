@@ -6,6 +6,9 @@ using Wedding.UseCases.Invites.Queries;
 
 namespace Wedding.Api.Invites;
 
+/// <summary>
+/// This controller demonstrates the classic design, where the controller is a class.
+/// </summary>
 [Route("[controller]")]
 [ApiController]
 public class InvitesController(IMediator mediator) : ControllerBase
