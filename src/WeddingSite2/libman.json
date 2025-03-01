@@ -1,0 +1,34 @@
+{
+  "version": "3.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "cdnjs",
+      "library": "bootstrap@5.3.3",
+      "destination": "wwwroot/lib/bootstrap/",
+      "files": [
+        "css/bootstrap.min.css",
+        "js/bootstrap.bundle.min.js",
+        "scss/bootstrap.scss"
+      ]
+    }
+  ,
+{
+  "provider": "cdnjs",
+  "library": "wow@1.1.2",
+  "destination": "wwwroot/lib/wow/",
+  "files" :  [
+    "wow.min.js"
+  ]
+}
+,
+{
+  "provider": "cdnjs",
+  "library": "animate.css@4.1.1",
+  "destination": "wwwroot/lib/animate.css/",
+  "files": [
+    "animate.min.css"
+  ]
+}
+]
+}
