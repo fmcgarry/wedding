@@ -11,24 +11,33 @@
         "js/bootstrap.bundle.min.js",
         "scss/bootstrap.scss"
       ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "wow@1.1.2",
+      "destination": "wwwroot/lib/wow/",
+      "files": [
+        "wow.min.js"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "animate.css@4.1.1",
+      "destination": "wwwroot/lib/animate.css/",
+      "files": [
+        "animate.compat.min.css"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "font-awesome@6.7.2",
+      "destination": "wwwroot/lib/font-awesome/",
+      "files": [
+        "css/fontawesome.min.css",
+        "css/solid.min.css",
+        "webfonts/fa-solid-900.ttf",
+        "webfonts/fa-solid-900.woff2"
+      ]
     }
-  ,
-{
-  "provider": "cdnjs",
-  "library": "wow@1.1.2",
-  "destination": "wwwroot/lib/wow/",
-  "files" :  [
-    "wow.min.js"
   ]
-}
-,
-{
-  "provider": "cdnjs",
-  "library": "animate.css@4.1.1",
-  "destination": "wwwroot/lib/animate.css/",
-  "files": [
-    "animate.min.css"
-  ]
-}
-]
 }

@@ -1,3 +1,16 @@
+:root {
+    /* Color Palette https://coolors.co/palette/124559-598392-b3c9d0-dda15e-b97527-a3b18a-588157-3a5a40-344e41 */
+    --midnight-green: #124559ff;
+    --air-force-blue: #598392ff;
+    --columbia-blue: #b3c9d0ff;
+    --earth-yellow: #dda15eff;
+    --copper: #b97527ff;
+    --sage: #a3b18aff;
+    --fern-green: #588157ff;
+    --hunter-green: #3a5a40ff;
+    --brunswick-green: #344e41ff;
+}
+
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
 }
