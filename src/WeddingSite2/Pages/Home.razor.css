@@ -1,5 +1,4 @@
-﻿
-html {
+﻿html {
     height: 100%;
     scroll-padding-top: calc(4.5rem - 1px);
 }
@@ -94,23 +93,24 @@ body {
 }
 
 header.masthead {
-    /*    padding-top: 10rem;
-    padding-bottom: calc(10rem - 4.5rem);*/
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("/img/masthead.jpg");
-    background-position: center;
+    background-position: center bottom;
     background-repeat: no-repeat;
     background-attachment: scroll;
-    background-size: cover;
+    background-size: 195%;
 }
 
     header.masthead h1, header.masthead .h1 {
-        font-size: 2.25rem;
+        font-size: 3rem;
+        font-family: "MonteCarlo", serif;
     }
 
 @media (min-width: 992px) {
     header.masthead {
         height: 100vh;
         min-height: 40rem;
+        background-position: center;
+        background-size: cover;
         padding-top: 4.5rem;
         padding-bottom: 0;
     }
@@ -133,6 +133,11 @@ header.masthead {
 .text-white-75 {
     color: rgba(255, 255, 255, 0.75) !important;
 }
+
+
+    .countdown .time-unit {
+        min-width: 3.7rem;
+    }
 
 .btn-xl {
     padding: 1.25rem 2.25rem;
