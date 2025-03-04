@@ -1,0 +1,500 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container-fluid px-4 px-lg-5">
+        <a class="navbar-brand" href="#home">Freddy | Breana</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapser" aria-controls="navbarCollapser" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapser">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#story">Story</a></li>
+                <li class="nav-item"><a class="nav-link" href="#album">Album</a></li>
+                <li class="nav-item"><a class="nav-link" href="#info">Info</a></li>
+                <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Masthead -->
+<header class="masthead" id="home">
+    <div class="container px-4 px-lg-5 vh-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-8 align-self-end">
+                <h1 class="fancy-font text-white font-weight-bold">Freddy | Breana</h1>
+                <h5 class="text-white font-weight-bold">We're getting married!</h5>
+                <hr class="divider" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <div class="countdown d-flex justify-content-center text-white-75 mb-2">
+                    <div class="time-unit mx-2">
+                        <h3 id="days">@TimeLeft.Days.ToString("00")</h3>
+                        <p>Days</p>
+                    </div>
+                    <div class="time-unit mx-2">
+                        <h3 id="hours">@TimeLeft.Hours.ToString("00")</h3>
+                        <p>Hours</p>
+                    </div>
+                    <div class="time-unit mx-2">
+                        <h3 id="minutes">@TimeLeft.Minutes.ToString("00")</h3>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="time-unit mx-2">
+                        <h3 id="seconds">@TimeLeft.Seconds.ToString("00")</h3>
+                        <p>Seconds</p>
+                    </div>
+                </div>
+                <a class="btn btn-primary btn-xl" href="#info">Skip to info</a>
+            </div>
+            <div id="masthead-scroll-down" class="wow shakeY" data-wow-iteration="infinite" data-wow-duration="10s">
+                <i class="fas fa-chevron-down text-white display-5"></i>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Story -->
+<section id="story" class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="section-header">The Story So Far</h1>
+                <p>Here's how we got here.</p>
+                <div class="hearts-divider">
+                    <div class="separator"></div>
+                    <span class="hearts"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0">
+                <ul class="timeline">
+                    <li class="wow fadeIn" data-wow-offset="250">
+                        <div class="timeline-badge" style="background-image:url(img/bumble.svg);"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3 class="timeline-title">The Beginning</h3>
+                                <span class="date">February 25, 2021</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p>We were both on the dating app Bumble, and with a simple right swipe each, our story began.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted wow fadeIn" data-wow-offset="250">
+                        <div class="timeline-badge" style="background-image:url(img/kona.jpg);"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3 class="timeline-title">First Date</h3>
+                                <span class="date">March 15, 2021</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p>Before our date could begin, we had one very important task—taking our favorite bean, Kona, for a walk. Afterward, we got cozy, snuggling up in the ultimate blanket fort with some pizza and a movie.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="wow fadeIn" data-wow-offset="250">
+                        <div class="timeline-badge" style="background-image:url(img/old-main.jpg);"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3 class="timeline-title">In a Relationship</h3>
+                                <span class="date">August 1, 2021</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p>We knew right away that we had something special. Just a few months after our first date, we took the leap and moved in together, settling into an apartment in State College.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted wow fadeIn" data-wow-offset="250">
+                        <div class="timeline-badge" style="background-image:url(img/moon.jpg);"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3 class="timeline-title">Proposal</h3>
+                                <span class="date">August 4, 2023</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p>We escaped to Cherry Springs to admire the night sky. While Breana was peering through a telescope at the moon, Freddy got down on one knee.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="wow fadeIn" data-wow-offset="250">
+                        <div class="timeline-badge" style="background-image:url(img/pittsburgh.jpg);"></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h3 class="timeline-title">Engagement</h3>
+                                <span class="date">2023-2025</span>
+                            </div>
+                            <div class="timeline-body">
+                                <p>After countless adventures and memories, we bought our first house together. Leaving State College behind, we started building our dream life in our new home: Pittsburgh.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Album -->
+<section id="album" class="album page-section bg-body-tertiary">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="section-header">Our Favorite Memories</h1>
+                <p>A peek into some of our adventures together.</p>
+                <div class="hearts-divider">
+                    <div class="separator bg-secondary-subtle"></div>
+                    <span class="hearts"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card shadow-sm wow fadeIn" data-wow-offset="250">
+                    <img src="img/cherry_blossoms.jpg" class="card-img-top" alt="Cherry Blossom Festival">
+                    <div class="card-body">
+                        <p class="card-text">Cherry Blossom Festival</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Washington, DC</small>
+                            <small class="text-body-secondary">Mar 2021</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm wow fadeIn" data-wow-offset="250">
+                    <img src="img/van_gogh.jpg" class="card-img-top" alt="Van Gogh Experience">
+                    <div class="card-body">
+                        <p class="card-text">Van Gogh Experience</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Pittsburgh, PA</small>
+                            <small class="text-body-secondary">Nov 2021</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm wow fadeIn" data-wow-offset="250">
+                    <img src="img/ski.jpg" class="card-img-top" alt="Holliday Valley">
+                    <div class="card-body">
+                        <p class="card-text">Holliday Valley</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Ellicottville, NY</small>
+                            <small class="text-body-secondary">Feb 2022</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm wow fadeIn" data-wow-offset="250">
+                    <img src="img/bread.jpg" class="card-img-top" alt="Birth of Bread">
+                    <div class="card-body">
+                        <p class="card-text">The Birth of "Bread"</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">PA</small>
+                            <small class="text-body-secondary">Aug 2024</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm wow fadeIn" data-wow-offset="250">
+                    <img src="img/white_sands.jpg" class="card-img-top" alt="White Sands National Park">
+                    <div class="card-body">
+                        <p class="card-text">White Sands National Park</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">New Mexico</small>
+                            <small class="text-body-secondary">July 2023</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm wow fadeIn" data-wow-offset="250">
+                    <img src="img/engagement.jpg" class="card-img-top" alt="Engagement">
+                    <div class="card-body">
+                        <p class="card-text">Engagement</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Cherry Springs, PA</small>
+                            <small class="text-body-secondary">Aug 2023</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm wow fadeIn" data-wow-offset="250">
+                    <img src="img/lantern_festival.jpg" class="card-img-top" alt="Asian Lantern Festival">
+                    <div class="card-body">
+                        <p class="card-text">Asian Lantern Festival</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Pittsburgh, PA</small>
+                            <small class="text-body-secondary">Sep 2023</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm wow fadeIn" data-wow-offset="250">
+                    <img src="img/picklesburg.jpg"card-img-top" alt="Picklesburg">
+                    <div class="card-body">
+                        <p class="card-text">Picklesburg</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Pittsburgh, PA</small>
+                            <small class="text-body-secondary">July 2024</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card shadow-sm wow fadeIn" data-wow-offset="250">
+                    <img src="img/ren_faire.jpg" card-img-top" alt="Pennsylvania Renaissance Faire">
+                    <div class="card-body">
+                        <p class="card-text">Pennsylvania Renaissance Faire</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-body-secondary">Mainheim, PA</small>
+                            <small class="text-body-secondary">Oct 2024</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Info -->
+<section id="info" class="page-section">
+    <div class="container wedding-timeline overflow-hidden" id="weddingTimeline">
+        <div class="row">
+            <div class="col text-center text-white">
+                <h1 class="section-header">Wedding Timeline</h1>
+                <p>Your guide to the celebration.</p>
+                <div class="hearts-divider">
+                    <div class="separator"></div>
+                    <span class="hearts"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row gx-1">
+            <div id="info-arrive" class="col-12 col-md-6 col-xl-3 border">
+                <div class="text-center p-3 wow fadeIn" data-wow-offset="250">
+                    <div class="p-3 d-inline-flex">
+                        <i class="fas fa-check text-white fa-3x"></i>
+                    </div>
+                    <h4 class="text-white mb-0">Arrive</h4>
+                    <small class="text-white-75">1:30PM - 2:00PM</small>
+                    <p class="text-white pt-3">Please try to arrive by 1:45PM.</p>
+                </div>
+            </div>
+            <div id="info-ceremony" class="col-12 col-md-6 col-xl-3 border">
+                <div class="text-center p-3 wow fadeIn" data-wow-offset="250">
+                    <div class="p-3 d-inline-flex">
+                        <i class="fas fa-ring text-white fa-3x"></i>
+                    </div>
+                    <h4 class="text-white mb-0">Ceremony</h4>
+                    <small class="text-white-75">2:00PM - 2:30PM</small>
+                    <p class="text-white pt-3">Our ceremony will be non-traditional, with just the two of us and our officiant up front—no bridesmaids or groomsmen.</p>
+                </div>
+            </div>
+            <div id="info-cocktail-hour" class="col-12 col-md-6 col-xl-3 border">
+                <div class="text-center p-3 wow fadeIn" data-wow-offset="250">
+                    <div class="p-3 d-inline-flex">
+                        <i class="fas fa-martini-glass text-white fa-3x"></i>
+                    </div>
+                    <h4 class="text-white mb-0">Cocktail Hour</h4>
+                    <small class="text-white-75">2:30PM - 4:00PM</small>
+                    <p class="text-white pt-3">While we take photos, please enjoy some hors d'oeuvres and refreshments. We may pull you aside during this time for a quick picture!</p>
+                </div>
+            </div>
+            <div id="info-dinner" class="col-12 col-md-6 col-xl-3 border">
+                <div class="text-center p-3 wow fadeIn" data-wow-offset="250">
+                    <div class="p-3 d-inline-flex">
+                        <i class="fas fa-utensils text-white fa-3x"></i>
+                    </div>
+                    <h4 class="text-white mb-0">Dinner</h4>
+                    <small class="text-white-75">5:00PM - 8:00PM</small>
+                    <p class="text-white pt-3">Dinner will be served at Tara. There will be an hour between cocktail hour and dinner, which we may use for additional photos. Feel free to head to Tara during this time!</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4 pt-3">
+            <div class="row g-5 justify-content-center text-center">
+                <div class="col-12 wow fadeIn" data-wow-delay="0.2s">
+                    <div class="border-secondary" style="overflow: hidden; ">
+                        <iframe class="w-100"
+                                style="height: 450px; margin-top: -60px;" src="https://www.google.com/maps/d/u/0/embed?mid=1Lc8RlyqlJO2VON3UZrR9QcaophpsQRk&ehbc=2E312F&noprof=1"
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="page-section bg-body-tertiary">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <h1>FAQ</h1>
+                <p>Answers to your most burning questions.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                How do I RSVP?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Please reach out through a call or text to either one of us, whomever you're most comfortable with.</p>
+                                <p>We need a final headcount by May 1st.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Can I bring whoever I want?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Unfortunately no.</p>
+                                <p>We have a strict 25-guest limit and are at full capacity. Each invite was thoughtfully chosen. If your spouse can't make it, you're welcome to bring someone else in their place, but we can't offer seats to additional guests. Feel free to ask if we can make an exception, but we can only accommodate one if another guest is unable to attend.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                What should I wear?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Please dress in formal wedding attire. Our photographer will be pulling guests for photos with us and we'd like some nice pictures to put on our empty photo wall in our living room! 😊</p>
+                                <p>For men, this means a collared shirt and slacks/khakis. A tie is optional, but preferred. If you own a suit, even better!</p>
+                                <p>For women, this is your chance to wear that nice outfit/dress you bought forever ago that you haven't had a fancy opportunity to wear!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+                                Is this indoors or outdoors?
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>Our ceremony will be held outdoors, weather permitting. The cocktail hour and dinner will take place indoors.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Where can I stay?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>There are a <a href="https://www.google.com/travel/search?qs=CAE4DUgA&ved=0CAAQ5JsGahgKEwiA7cGZv-6LAxUAAAAAHQAAAAAQ6AI&ts=CAESBgoCCAMQARpcCj4SEgoIL20vMF82MHI6BlNoYXJvbhooChIJNL4YtGOVREARSCwADqwiVMASEglhEjqlk6REQBFILADebhdUwBIaEhQKBwjpDxAFGB8SBwjpDxAGGAEYATICCAEqEAoMOgNVU0RaBQ8TEhAUGgA&ap=KigKEgk0vhi0Y5VEQBFILAAOrCJUwBISCWESOqWTpERAEUgsAN5uF1TAMAE">multitude of hotels</a> within 15-20 minutes of Buhl Mansion and Tara. Prices range from $75-$175 a night.</p>
+                                <p><a href="https://tara-inn.com/all-rooms/">Tara</a> also offers rooms starting at $275 per night—a great option if you’d rather not drive after dinner.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
+                                What about a registry or gifts?
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <p>We don't have a registry, and gifts are completely unexpected. However, we're heading to Japan this fall for our honeymoon! If you'd like to contribute in any way, we'd be grateful—your gift would help cover part of our trip.</p>
+                                <p>Instead of letting an online service take a cut of your gift, let's skip the middleman! Feel free to bring it to the wedding or send it to us directly via <a href="https://paypal.me./freddymcgarry">PayPal</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <p class="small text-muted text-center">Please don't hesitate to reach out if you have questions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer-->
+<footer class="bg-white py-3">
+    <div class="container px-4 px-lg-5"><div class="small text-center text-muted">Copyright &copy; 2025 - Made with &#x2665; by Freddy</div></div>
+</footer>
+
+<!-- Back to top button -->
+<a id="btn-back-to-top" class="btn btn-primary text-white rounded-circle btn-lg" href="#home">
+    <i class="fas fa-arrow-up"></i>
+</a>
+
+<script>
+    // Show/hide the btn-back-to-top and masthead-scroll-down items on scroll
+    let scrollTopButton = document.getElementById("btn-back-to-top");
+    let mastheadScrollDownButton = document.getElementById("masthead-scroll-down");
+
+    window.onscroll = function () {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            scrollTopButton.style.display = "block";
+            mastheadScrollDownButton.style.display = "none";
+        } else {
+            scrollTopButton.style.display = "none";
+            mastheadScrollDownButton.style.display = "block";
+        }
+    };
+</script>
+<script>
+    // Turn the navbar white when scrolling past masthead on large screens
+    const navbar = document.getElementById("mainNav");
+    const masthead = document.getElementById("home");
+
+    function onScroll() {
+        if (window.scrollY > masthead.offsetHeight) {
+            navbar.classList.add("navbar-shrink");
+        } else {
+            navbar.classList.remove("navbar-shrink");
+        }
+    }
+
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+</script>
+@code {
+    private DateTime TargetDate = new DateTime(2025, 5, 31, 14, 0, 0); // May 31st, 2025 @ 1pm
+    private TimeSpan TimeLeft;
+    private System.Threading.Timer? _timer;
+
+    protected override void OnInitialized()
+    {
+        UpdateTimeLeft();
+        _timer = new System.Threading.Timer(UpdateCountdown, null, 0, 1000);
+    }
+
+    private void UpdateCountdown(object? state)
+    {
+        UpdateTimeLeft();
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void UpdateTimeLeft()
+    {
+        TimeLeft = TargetDate - DateTime.UtcNow;
+    }
+}
